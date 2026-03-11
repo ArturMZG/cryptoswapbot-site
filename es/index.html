@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoSwap Bot — Intercambio Instantáneo de Criptomonedas en Telegram</title>
+    <meta name="description" content="Intercambio rápido y seguro de criptomonedas a través de un bot de Telegram. Más de 300 monedas, bajas comisiones, cashback.">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <header>
+        <h1>🔄 CryptoSwap Bot 🔄</h1>
+        <p class="subtitle">Intercambio instantáneo de criptomonedas directamente en Telegram</p>
+        <p class="subtitle">Más de 300 monedas, bajas comisiones, cashback.</p>
+        <a href="https://t.me/CryptoSwapExchangeBot" class="btn" target="_blank" rel="noopener noreferrer">🚀 Iniciar Bot</a>
+    </header>
+
+    <section class="features">
+        <div class="feature">
+            <h3>⚡ Rápido</h3>
+            <p>Intercambio en 2–5 minutos. Sin registro, sin KYC para montos inferiores a $1000.</p>
+        </div>
+        <div class="feature">
+            <h3>🔒 Seguro</h3>
+            <p>Arquitectura no privativa (non-custodial): no almacenamos tus claves privadas ni fondos.</p>
+        </div>
+        <div class="feature">
+            <h3>💰 Rentable</h3>
+            <p>Tasas transparentes + hasta un 1% de cashback de cada operación en tu saldo interno.</p>
+        </div>
+    </section>
+
+    <section class="steps">
+        <h3>📋 Cómo funciona</h3>
+        <ol>
+            <li>Inicia el bot: <a href="https://t.me/CryptoSwapExchangeBot" target="_blank" rel="noopener noreferrer">@CryptoSwapExchangeBot</a></li>
+            <li>Selecciona un par de intercambio (por ejemplo, BTC → USDT)</li>
+            <li>Ingresa el monto y la dirección de recepción</li>
+            <li>Envía la criptomoneda a la dirección generada</li>
+            <li>Recibe las monedas en tu billetera automáticamente</li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>
+            <a href="/es/terms.html">Términos de Uso</a> | 
+            <a href="/es/privacy.html">Política de Privacidad</a> | 
+            <a href="https://t.me/CryptoSwapBot_support" target="_blank" rel="noopener noreferrer">Soporte</a>
+        </p>
+        <p>© 2026 CryptoSwap Bot. Todos los derechos reservados.</p>
+        <p class="disclaimer">
+            El servicio actúa como un agregador de operaciones de intercambio y proporciona una interfaz 
+            para acceder a proveedores de liquidez de terceros (ChangeNOW, SimpleSwap). 
+            No somos un operador de intercambio, no almacenamos fondos de usuarios, 
+            y no controlamos claves privadas. Todos los intercambios se rigen por los términos 
+            de los respectivos proveedores.
+        </p>
+    </footer>
+
+    <!-- Safe SPA Router -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('click', async (e) => {
+          const link = e.target.closest('a[href^="/"]');
+          if (!link) return;
+          if (link.hasAttribute('target') || link.hasAttribute('download') || link.href.startsWith('mailto:') || link.href.startsWith('tel:')) return;
+          e.preventDefault();
+          const url = new URL(link.href, window.location.origin);
+          const path = url.pathname;
+          if (path === window.location.pathname) return;
+          try {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error('Page not found');
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            document.body.innerHTML = doc.body.innerHTML;
+            document.title = doc.querySelector('title')?.innerText || 'CryptoSwap Bot';
+            history.pushState({ path }, '', path);
+            window.scrollTo(0, 0);
+          } catch (err) {
+            console.warn('Fallback to full navigation:', err);
+            window.location.href = link.href;
+          }
+        });
+
+        if (!window.hasPopStateListener) {
+          window.addEventListener('popstate', async (e) => {
+            const path = e.state?.path || location.pathname;
+            try {
+              const res = await fetch(path);
+              const html = await res.text();
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              document.body.innerHTML = doc.body.innerHTML;
+              document.title = doc.querySelector('title')?.innerText || 'CryptoSwap Bot';
+              window.scrollTo(0, 0);
+            } catch {}
+          });
+          window.hasPopStateListener = true;
+        }
+      });
+    </script>
+</body>
+</html>

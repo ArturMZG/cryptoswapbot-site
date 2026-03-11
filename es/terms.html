@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Uso — CryptoSwap Bot</title>
+    <meta name="description" content="Términos de Uso del servicio CryptoSwap Bot. Reglas, comisiones, limitaciones y responsabilidad del usuario.">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <h1>Términos de Uso</h1>
+    <p><em>Última actualización: Marzo de 2026</em></p>
+    
+    <h2>1. Disposiciones Generales</h2>
+    <p>CryptoSwap Bot ("Servicio") proporciona una interfaz para acceder a servicios de intercambio de terceros, incluyendo ChangeNOW y SimpleSwap. No somos un operador de intercambio de criptomonedas, no almacenamos fondos de los usuarios y no controlamos las claves privadas.</p>
+    
+    <h2>2. Comisiones y Tipos de Cambio</h2>
+    <p>El Servicio puede cobrar una comisión adicional (spread) del 0.5–3% del monto del intercambio. La tasa final se muestra al usuario antes de confirmar la transacción y es definitiva.</p>
+    
+    <h2>3. Restricciones y Límites</h2>
+    <p>Los montos mínimos y máximos de intercambio son determinados por los proveedores asociados y pueden cambiar sin previo aviso. Las transacciones con actividad sospechosa pueden ser rechazadas por los proveedores de acuerdo con sus políticas ALD (Anti-Lavado de Dinero).</p>
+    
+    <h2>4. Responsabilidad del Usuario</h2>
+    <p>El usuario asume la total responsabilidad de forma independiente por:</p>
+    <ul>
+        <li>La exactitud de las direcciones de billetera proporcionadas</li>
+        <li>La seguridad de sus claves privadas y frases semilla (seed phrases)</li>
+        <li>El cumplimiento de la legislación de su jurisdicción al utilizar criptomonedas</li>
+    </ul>
+    
+    <h2>5. Exención de Responsabilidad</h2>
+    <p>El Servicio se proporciona "tal cual". No garantizamos un funcionamiento ininterrumpido, ni compensamos las pérdidas debidas a errores del usuario, fallos en la cadena de bloques (blockchain) o acciones de los proveedores asociados.</p>
+    
+    <h2>6. Cambios en los Términos</h2>
+    <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. El uso continuado del Servicio después de los cambios constituye su aceptación de la nueva versión.</p>
+    
+    <footer>
+        <a href="/es/index.html">← Volver al Inicio</a>
+    </footer>
+
+    <!-- Safe SPA Router -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('click', async (e) => {
+          const link = e.target.closest('a[href^="/"]');
+          if (!link) return;
+          if (link.hasAttribute('target') || link.hasAttribute('download') || link.href.startsWith('mailto:') || link.href.startsWith('tel:')) return;
+          e.preventDefault();
+          const url = new URL(link.href, window.location.origin);
+          const path = url.pathname;
+          if (path === window.location.pathname) return;
+          try {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error('Page not found');
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            document.body.innerHTML = doc.body.innerHTML;
+            document.title = doc.querySelector('title')?.innerText || 'CryptoSwap Bot';
+            history.pushState({ path }, '', path);
+            window.scrollTo(0, 0);
+          } catch (err) {
+            window.location.href = link.href;
+          }
+        });
+
+        if (!window.hasPopStateListener) {
+          window.addEventListener('popstate', async (e) => {
+            const path = e.state?.path || location.pathname;
+            try {
+              const res = await fetch(path);
+              const html = await res.text();
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              document.body.innerHTML = doc.body.innerHTML;
+              document.title = doc.querySelector('title')?.innerText || 'CryptoSwap Bot';
+              window.scrollTo(0, 0);
+            } catch {}
+          });
+          window.hasPopStateListener = true;
+        }
+      });
+    </script>
+</body>
+</html>

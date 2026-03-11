@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad — CryptoSwap Bot</title>
+    <meta name="description" content="Política de Privacidad de CryptoSwap Bot. Información sobre qué datos técnicos recopilamos y cómo los utilizamos.">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <h1>Política de Privacidad</h1>
+    <p><em>Última actualización: Marzo de 2026</em></p>
+    
+    <h2>1. Qué Datos Recopilamos</h2>
+    <p>CryptoSwap Bot no requiere registro y no solicita datos personales. Durante el uso del bot, se puede registrar la siguiente información técnica:</p>
+    <ul>
+        <li>ID de Telegram del usuario (para identificación dentro de la sesión)</li>
+        <li>Historial de solicitudes de intercambio (sin vinculación a la identidad)</li>
+        <li>Dirección IP (solo al acceder al sitio web, los registros se conservan durante 7 días)</li>
+    </ul>
+    
+    <h2>2. Cómo Utilizamos los Datos</h2>
+    <p>Los datos técnicos recopilados se utilizan exclusivamente para:</p>
+    <ul>
+        <li>Garantizar el funcionamiento del Servicio</li>
+        <li>Analizar errores y mejorar la experiencia del usuario</li>
+        <li>Prevenir abusos y spam</li>
+    </ul>
+    
+    <h2>3. Transferencia de Datos a Terceros</h2>
+    <p>No vendemos ni transferimos datos personales. Los registros técnicos pueden transferirse a proveedores asociados (ChangeNOW, SimpleSwap) exclusivamente en la medida necesaria para ejecutar el intercambio, de acuerdo con sus políticas de privacidad.</p>
+    
+    <h2>4. Cookies y Análisis</h2>
+    <p>El sitio web puede utilizar cookies anonimizadas para el análisis básico del tráfico. Puedes desactivar las cookies en la configuración de tu navegador.</p>
+    
+    <h2>5. Tus Derechos</h2>
+    <p>Puedes solicitar la eliminación de tus datos técnicos poniéndote en contacto con el soporte: <a href="https://t.me/CryptoSwapBot_support" target="_blank" rel="noopener noreferrer">@CryptoSwapBot_support</a></p>
+    
+    <h2>6. Cambios en la Política</h2>
+    <p>Nos reservamos el derecho de actualizar esta política. La versión actual siempre está disponible en esta dirección.</p>
+    
+    <footer>
+        <a href="/es/index.html">← Volver al Inicio</a>
+    </footer>
+
+    <!-- Safe SPA Router -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('click', async (e) => {
+          const link = e.target.closest('a[href^="/"]');
+          if (!link) return;
+          if (link.hasAttribute('target') || link.hasAttribute('download') || link.href.startsWith('mailto:') || link.href.startsWith('tel:')) return;
+          e.preventDefault();
+          const url = new URL(link.href, window.location.origin);
+          const path = url.pathname;
+          if (path === window.location.pathname) return;
+          try {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error('Page not found');
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            document.body.innerHTML = doc.body.innerHTML;
+            document.title = doc.querySelector('title')?.innerText || 'CryptoSwap Bot';
+            history.pushState({ path }, '', path);
+            window.scrollTo(0, 0);
+          } catch (err) {
+            window.location.href = link.href;
+          }
+        });
+
+        if (!window.hasPopStateListener) {
+          window.addEventListener('popstate', async (e) => {
+            const path = e.state?.path || location.pathname;
+            try {
+              const res = await fetch(path);
+              const html = await res.text();
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              document.body.innerHTML = doc.body.innerHTML;
+              document.title = doc.querySelector('title')?.innerText || 'CryptoSwap Bot';
+              window.scrollTo(0, 0);
+            } catch {}
+          });
+          window.hasPopStateListener = true;
+        }
+      });
+    </script>
+</body>
+</html>
