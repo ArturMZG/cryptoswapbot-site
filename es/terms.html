@@ -6,25 +6,59 @@
     <title>Términos de Uso — CryptoSwap Bot</title>
     <meta name="description" content="Términos de Uso del servicio CryptoSwap Bot. Reglas, comisiones, limitaciones y responsabilidad del usuario.">
     <link rel="stylesheet" href="../assets/style.css">
-    <!-- SEO: Мультиязычность (hreflang) -->
-    <link rel="alternate" hreflang="ru" href="https://https://www.cryptoswapbot.online/terms.html" />
-    <link rel="alternate" hreflang="en" href="https://https://www.cryptoswapbot.online/en/terms.html" />
-    <link rel="alternate" hreflang="es" href="https://https://www.cryptoswapbot.online/es/terms.html" />
-    <link rel="alternate" hreflang="pt" href="https://https://www.cryptoswapbot.online/pt/terms.html" />
-    <link rel="alternate" hreflang="tr" href="https://https://www.cryptoswapbot.online/tr/terms.html" />
-    <link rel="alternate" hreflang="x-default" href="https://https://www.cryptoswapbot.online/en/terms.html" />
+    
+    <!-- SEO: мультиязычность -->
+    <link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/terms.html" />
+    <link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/terms.html" />
+    <link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/terms.html" />
+    <link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/terms.html" />
+    <link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/terms.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/terms.html" />
+    
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Términos de Uso — CryptoSwap Bot">
+    <meta property="og:description" content="Reglas, comisiones, limitaciones y responsabilidad del usuario del servicio CryptoSwap Bot.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cryptoswapbot.online/es/terms.html">
+    <meta property="og:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:site_name" content="CryptoSwap Bot">
+    <meta property="og:locale" content="es_ES">
+    
+    <style>
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin: 20px 0 30px;
+        }
+        .btn {
+            min-width: 220px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="lang-switcher">
-        <button onclick="switchLang('ru')">RU</button>
-        <button onclick="switchLang('en')">EN</button>
-        <button class="active" onclick="switchLang('es')">ES</button>
-        <button onclick="switchLang('pt')">PT</button>
-        <button onclick="switchLang('tr')">TR</button>
-    </div>
-    <h1>Términos de Uso</h1>
-    <p><em>Última actualización: Marzo de 2026</em></p>
-    
+    <header>
+        <div class="lang-switcher">
+            <button onclick="switchLang('ru')">RU</button>
+            <button onclick="switchLang('en')">EN</button>
+            <button class="active" onclick="switchLang('es')">ES</button>
+            <button onclick="switchLang('pt')">PT</button>
+            <button onclick="switchLang('tr')">TR</button>
+        </div>
+        <div class="button-group">
+            <a href="/exchange.html?lang=es&fromFiat=eur&darkMode=true" class="btn">💱 Comprar Cripto</a>
+        </div>
+        <h1>Términos de Uso</h1>
+        <p><em>Última actualización: Marzo de 2026</em></p>
+    </header>
+
     <h2>1. Disposiciones Generales</h2>
     <p>CryptoSwap Bot ("Servicio") proporciona una interfaz para acceder a servicios de intercambio de terceros, incluyendo ChangeNOW y SimpleSwap. No somos un operador de intercambio de criptomonedas, no almacenamos fondos de los usuarios y no controlamos las claves privadas.</p>
     
@@ -49,10 +83,10 @@
     <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. El uso continuado del Servicio después de los cambios constituye su aceptación de la nueva versión.</p>
     
     <footer>
-        <a href="/es/index.html">← Volver al Inicio</a>
+        <a href="/es/">← Volver al Inicio</a>
     </footer>
 
-    <!-- Safe SPA Router -->
+    <!-- SPA Router y мультиязычность (копируются из index.html) -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', async (e) => {
@@ -95,7 +129,6 @@
         }
       });
     </script>
-    <!-- Скрипт мультиязычности (Финальный, с поддержкой TR) -->
     <script>
       (function() {
         const supportedLangs = ['en', 'es', 'pt', 'tr']; 
@@ -143,7 +176,7 @@
           if (browserLang.startsWith('ru')) targetLang = 'ru';
           if (browserLang.startsWith('es')) targetLang = 'es';
           if (browserLang.startsWith('pt')) targetLang = 'pt';
-          if (browserLang.startsWith('tr')) targetLang = 'tr'; // Проверка турецкого
+          if (browserLang.startsWith('tr')) targetLang = 'tr';
           
           localStorage.setItem('site_lang', targetLang);
           
@@ -159,10 +192,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
