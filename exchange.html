@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Покупка криптовалюты | CryptoSwap Bot</title>
-    <meta name="description" content="Мгновенный обмен криптовалют через Telegram-бота. Покупка BTC, ETH, USDT за рубли, доллары, евро.">
+    <title>Buy Crypto | CryptoSwap Bot</title>
+    <meta name="description" content="Instant crypto exchange via Telegram bot. Buy BTC, ETH, USDT with USD, EUR, GBP and more.">
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background-color: #0f0f0f;
             color: #ffffff;
@@ -69,10 +65,10 @@
         }
         iframe {
             width: 100%;
-            height: 500px; /* начальная высота, потом будет меняться динамически */
+            height: 500px;
             border: none;
             border-radius: 16px;
-            background: transparent; /* фон прозрачный – серой полосы не будет */
+            background: transparent;
             display: block;
         }
         .payment-methods {
@@ -113,9 +109,7 @@
             font-weight: 500;
             color: #ddd;
         }
-        .payment-icons span::before {
-            font-size: 1rem;
-        }
+        .payment-icons span::before { font-size: 1rem; }
         .visa::before { content: "💳"; }
         .swift::before { content: "🏦"; }
         .mastercard::before { content: "💳"; }
@@ -124,13 +118,8 @@
         .revolut::before { content: "🔄"; }
         .ach::before { content: "🏦"; }
         @media (max-width: 480px) {
-            .payment-icons span {
-                padding: 5px 10px;
-                font-size: 0.75rem;
-            }
-            .payment-title {
-                font-size: 1.2rem;
-            }
+            .payment-icons span { padding: 5px 10px; font-size: 0.75rem; }
+            .payment-title { font-size: 1.2rem; }
         }
         footer {
             text-align: center;
@@ -155,24 +144,24 @@
 <body>
 <div class="container">
     <div class="lang-switcher">
-        <button data-lang="ru" class="active">RU</button>
-        <button data-lang="en">EN</button>
+        <button data-lang="ru">RU</button>
+        <button data-lang="en" class="active">EN</button>
         <button data-lang="es">ES</button>
         <button data-lang="pt">PT</button>
         <button data-lang="tr">TR</button>
     </div>
-    <h1>🔄 Покупка криптовалюты 🔄</h1>
-    <p class="subtitle">Виджет от ChangeNOW – безопасно и быстро</p>
+    <h1>🔄 Buy Crypto 🔄</h1>
+    <p class="subtitle">ChangeNOW widget – secure and fast</p>
 
     <div class="widget-wrapper">
         <iframe id="changeNOW-widget"
-                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat=1500&backgroundColor=1A1A1A&darkMode=true&from=btc&fromFiat=rub&horizontal=false&isFiat=true&lang=ru&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toFiat=rub&toTheMoon=true"
+                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat=1500&backgroundColor=1A1A1A&darkMode=true&from=btc&fromFiat=usd&horizontal=false&isFiat=true&lang=en&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toFiat=usd&toTheMoon=true"
                 style="width: 100%; border: none; border-radius: 16px;"></iframe>
     </div>
 
     <div class="payment-methods">
-        <div class="payment-title">Покупайте криптовалюту с помощью фиата</div>
-        <div class="payment-desc">На ChangeNOW вы можете купить любую криптовалюту за более чем 50 фиатных валют с помощью карт Visa или MasterCard</div>
+        <div class="payment-title">Buy crypto with fiat</div>
+        <div class="payment-desc">On ChangeNOW, you can buy any crypto with more than 50 fiat currencies using your Visa or MasterCard</div>
         <div class="payment-icons">
             <span class="visa">Visa</span>
             <span class="swift">Swift</span>
@@ -185,10 +174,10 @@
     </div>
 
     <footer>
-        <a href="/" class="back-link">← На главную</a>
+        <a href="/en/" class="back-link">← Back to Home</a>
         <p class="disclaimer">
-            Сервис использует виджет ChangeNOW. Все обмены осуществляются через партнёра.
-            <a href="https://changenow.app.link/referral?link_id=9ccfa63406d1d6" target="_blank" rel="noopener noreferrer">Условия ChangeNOW</a>
+            The service uses the ChangeNOW widget. All exchanges are carried out through a partner.
+            <a href="https://changenow.app.link/referral?link_id=9ccfa63406d1d6" target="_blank" rel="noopener noreferrer">ChangeNOW Terms</a>
         </p>
     </footer>
 </div>
@@ -224,11 +213,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        let lang = getQueryParam('lang', 'ru');
-        let fromFiat = getQueryParam('fromFiat', 'rub');
+        let lang = getQueryParam('lang', 'en');
+        let fromFiat = getQueryParam('fromFiat', 'usd');
         let darkMode = getQueryParam('darkMode', 'true') === 'true';
 
-        // Кнопки языков
         const switcher = document.querySelector('.lang-switcher');
         if (switcher) {
             const buttons = Array.from(switcher.querySelectorAll('button'));
@@ -247,11 +235,9 @@
         document.body.style.backgroundColor = darkMode ? '#0f0f0f' : '#f8f9fa';
         updateWidget(lang, fromFiat, darkMode);
 
-        // Динамическая подстройка высоты виджета (убирает серую полосу)
         const iframe = document.getElementById('changeNOW-widget');
         window.addEventListener('message', function(event) {
             if (event.origin !== 'https://changenow.io') return;
-            // ChangeNOW отправляет событие resize с новой высотой
             if (event.data && event.data.type === 'resize' && event.data.height) {
                 iframe.style.height = event.data.height + 'px';
             }
