@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
-        /* Глобальное центрирование и отступы */
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             min-height: 100vh;
             background-color: #0f0f0f;
             color: #fff;
@@ -64,19 +63,25 @@
         }
         .widget-wrapper {
             width: 100%;
-            margin: 10px 0;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            min-height: 600px;
+            display: flex;
+            justify-content: center;
         }
         iframe {
             width: 100%;
-            height: 620px;
+            height: 100%;
+            min-height: 600px;
             border: none;
             border-radius: 16px;
-            background: #fff;
+            background: transparent;
             display: block;
         }
         footer {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .back-link {
             display: inline-block;
@@ -92,6 +97,9 @@
             color: #00C26F;
             text-decoration: none;
         }
+        body, .container, .widget-wrapper {
+            background: transparent;
+        }
     </style>
 </head>
 <body>
@@ -103,13 +111,13 @@
             <button data-lang="pt">PT</button>
             <button data-lang="tr">TR</button>
         </div>
-        <h1>🔄 Покупка криптовалюты 🔄</h1>
+        <h1>🔄 Покупка криптовалюты</h1>
         <p class="subtitle">Виджет от ChangeNOW – безопасно и быстро</p>
 
         <div class="widget-wrapper">
             <iframe id="changeNOW-widget"
                 src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat=1500&backgroundColor=1A1A1A&darkMode=true&from=btc&fromFiat=rub&horizontal=false&isFiat=true&lang=ru&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toFiat=rub&toTheMoon=true"
-                style="height: 620px; width: 100%; border: none; border-radius: 16px;"></iframe>
+                style="width: 100%; border: none; border-radius: 16px;"></iframe>
         </div>
 
         <footer>
@@ -122,11 +130,9 @@
     </div>
 
     <script>
-        // Функция обновления виджета при смене языка/валюты
         function updateWidget(lang, fromFiat, darkMode) {
             const iframe = document.getElementById('changeNOW-widget');
             if (!iframe) return;
-            
             const baseUrl = 'https://changenow.io/embeds/exchange-widget/v2/widget.html';
             const params = {
                 FAQ: 'true',
@@ -151,13 +157,11 @@
             iframe.src = url;
         }
 
-        // Получение параметров из URL
         function getQueryParam(param, defaultValue) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param) || defaultValue;
         }
 
-        // Переключение языка
         function switchLanguage(targetLang) {
             const url = new URL(window.location.href);
             url.searchParams.set('lang', targetLang);
@@ -167,13 +171,11 @@
             window.location.href = url.toString();
         }
 
-        // Инициализация
         document.addEventListener('DOMContentLoaded', () => {
             let lang = getQueryParam('lang', 'ru');
             let fromFiat = getQueryParam('fromFiat', 'rub');
             let darkMode = getQueryParam('darkMode', 'true') === 'true';
-            
-            // Установка активной кнопки языка
+
             const buttons = document.querySelectorAll('.lang-switcher button');
             buttons.forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
@@ -190,8 +192,7 @@
                     }
                 });
             });
-            
-            // Обновляем виджет согласно параметрам
+
             updateWidget(lang, fromFiat, darkMode);
         });
     </script>
