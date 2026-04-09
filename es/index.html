@@ -7,7 +7,7 @@
     <meta name="description" content="Intercambio rápido y seguro de criptomonedas a través de un bot de Telegram. Más de 300 monedas, bajas comisiones, cashback.">
     <link rel="stylesheet" href="../assets/style.css">
     
-    <!-- SEO: мультиязычность (hreflang) -->
+    <!-- SEO: hreflang -->
     <link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/" />
     <link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/" />
     <link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/" />
@@ -17,10 +17,11 @@
     
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="google-site-verification" content="b3Z2NfqgIJISRNv0reKut-_lWhBlX05PAquVu2GX8Mg" />
     
-    <!-- Open Graph (para vista previa en redes sociales y Telegram) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="CryptoSwap Bot — Intercambio Instantáneo de Criptomonedas en Telegram">
-    <meta property="og:description" content="Intercambio rápido y seguro de criptomonedas a través de un bot de Telegram. Más de 300 monedas, bajas comisiones, cashback.">
+    <meta property="og:description" content="Intercambio instantáneo de más de 300 monedas. Sin registro, bajas comisiones, hasta 1% de cashback.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.cryptoswapbot.online/es/">
     <meta property="og:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
@@ -30,7 +31,6 @@
     <meta property="og:locale" content="es_ES">
     
     <style>
-        /* Estilo para botones verticales */
         .button-group {
             display: flex;
             flex-direction: column;
@@ -59,7 +59,7 @@
         
         <div class="button-group">
             <a href="https://t.me/CryptoSwapExchangeBot" class="btn" target="_blank" rel="noopener noreferrer">🚀 Iniciar Bot</a>
-            <a href="/exchange.html?lang=es&fromFiat=eur&darkMode=true" class="btn">💱 Comprar Cripto</a>
+            <a href="/es/exchange.html?lang=es&fromFiat=eur&darkMode=true" class="btn">💱 Comprar Cripto</a>
         </div>
     </header>
 
@@ -70,7 +70,7 @@
         </div>
         <div class="feature">
             <h3>🔒 Seguro</h3>
-            <p>Arquitectura no privativa (non-custodial): no almacenamos tus claves privadas ni fondos.</p>
+            <p>Arquitectura no custodial (non-custodial): no almacenamos tus claves privadas ni fondos.</p>
         </div>
         <div class="feature">
             <h3>💰 Rentable</h3>
@@ -105,13 +105,20 @@
         </p>
     </footer>
 
-    <!-- Safe SPA Router -->
+    <!-- Исправленный роутер SPA (игнорирует exchange.html) – тот же код -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', async (e) => {
           const link = e.target.closest('a[href^="/"]');
           if (!link) return;
-          if (link.hasAttribute('target') || link.hasAttribute('download') || link.href.startsWith('mailto:') || link.href.startsWith('tel:')) return;
+          const href = link.getAttribute('href');
+          if (href && href.includes('exchange.html')) return;
+          if (
+            link.hasAttribute('target') ||
+            link.hasAttribute('download') ||
+            link.href.startsWith('mailto:') ||
+            link.href.startsWith('tel:')
+          ) return;
           e.preventDefault();
           const url = new URL(link.href, window.location.origin);
           const path = url.pathname;
@@ -149,12 +156,11 @@
         }
       });
     </script>
-    <!-- Скрипт мультиязычности (Финальный, с поддержкой TR) -->
+    <!-- Скрипт мультиязычности (без изменений) -->
     <script>
       (function() {
         const supportedLangs = ['en', 'es', 'pt', 'tr']; 
         const defaultLang = 'ru';
-
         function getCurrentPageLang() {
           const path = window.location.pathname;
           for (let i = 0; i < supportedLangs.length; i++) {
@@ -164,50 +170,35 @@
           }
           return defaultLang;
         }
-
         window.switchLang = function(targetLang) {
           localStorage.setItem('site_lang', targetLang);
           const currentPath = window.location.pathname;
           const currentLang = getCurrentPageLang();
-          
           if (currentLang === targetLang) return; 
-
           let newPath = currentPath;
-          
           if (currentLang !== defaultLang) {
             newPath = currentPath.replace('/' + currentLang, '');
             if (newPath === '') newPath = '/';
           }
           if (newPath === '/') newPath = '/index.html'; 
-
           if (targetLang !== defaultLang) {
             newPath = '/' + targetLang + newPath;
           }
-          
           window.location.href = newPath;
         };
-
         const savedLang = localStorage.getItem('site_lang');
         const currentLang = getCurrentPageLang();
-
         if (!savedLang) {
           const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
-          
           let targetLang = 'en'; 
           if (browserLang.startsWith('ru')) targetLang = 'ru';
           if (browserLang.startsWith('es')) targetLang = 'es';
           if (browserLang.startsWith('pt')) targetLang = 'pt';
           if (browserLang.startsWith('tr')) targetLang = 'tr';
-          
           localStorage.setItem('site_lang', targetLang);
-          
-          if (targetLang !== currentLang) {
-             window.switchLang(targetLang);
-          }
+          if (targetLang !== currentLang) window.switchLang(targetLang);
         } else {
-          if (savedLang !== currentLang) {
-             window.switchLang(savedLang);
-          }
+          if (savedLang !== currentLang) window.switchLang(savedLang);
         }
       })();
     </script>
