@@ -14,27 +14,24 @@
             box-sizing: border-box;
         }
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
             background-color: #0f0f0f;
-            color: #fff;
+            color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            background: transparent;
         }
         .lang-switcher {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .lang-switcher button {
             background: transparent;
@@ -54,34 +51,32 @@
         h1 {
             text-align: center;
             font-size: 1.8rem;
-            margin: 0;
+            margin: 0 0 10px 0;
         }
         .subtitle {
             text-align: center;
             color: #aaa;
-            margin-top: 5px;
+            margin-bottom: 20px;
         }
         .widget-wrapper {
             width: 100%;
             margin: 0;
             padding: 0;
             background: transparent;
-            min-height: 600px;
             display: flex;
             justify-content: center;
         }
         iframe {
             width: 100%;
-            height: 100%;
-            min-height: 600px;
+            height: 620px;
             border: none;
             border-radius: 16px;
-            background: transparent;
+            background: #1a1a1a;
             display: block;
         }
         footer {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         .back-link {
             display: inline-block;
@@ -97,9 +92,6 @@
             color: #00C26F;
             text-decoration: none;
         }
-        body, .container, .widget-wrapper {
-            background: transparent;
-        }
     </style>
 </head>
 <body>
@@ -111,13 +103,13 @@
             <button data-lang="pt">PT</button>
             <button data-lang="tr">TR</button>
         </div>
-        <h1>🔄 Покупка криптовалюты</h1>
+        <h1>🔄 Покупка криптовалюты 🔄</h1>
         <p class="subtitle">Виджет от ChangeNOW – безопасно и быстро</p>
 
         <div class="widget-wrapper">
             <iframe id="changeNOW-widget"
                 src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat=1500&backgroundColor=1A1A1A&darkMode=true&from=btc&fromFiat=rub&horizontal=false&isFiat=true&lang=ru&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toFiat=rub&toTheMoon=true"
-                style="width: 100%; border: none; border-radius: 16px;"></iframe>
+                style="width: 100%; height: 620px; border: none; border-radius: 16px;"></iframe>
         </div>
 
         <footer>
@@ -176,6 +168,7 @@
             let fromFiat = getQueryParam('fromFiat', 'rub');
             let darkMode = getQueryParam('darkMode', 'true') === 'true';
 
+            // Установка активной кнопки языка
             const buttons = document.querySelectorAll('.lang-switcher button');
             buttons.forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
@@ -192,6 +185,13 @@
                     }
                 });
             });
+
+            // Принудительно устанавливаем тёмный фон тела, если darkMode=true
+            if (darkMode) {
+                document.body.style.backgroundColor = '#0f0f0f';
+            } else {
+                document.body.style.backgroundColor = '#f8f9fa';
+            }
 
             updateWidget(lang, fromFiat, darkMode);
         });
