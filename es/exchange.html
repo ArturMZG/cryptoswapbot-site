@@ -160,7 +160,7 @@
 
     <div class="widget-wrapper">
         <iframe id="changeNOW-widget"
-                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat=1500&backgroundColor=1A1A1A&darkMode=true&from=btc&fromFiat=eur&horizontal=false&isFiat=true&lang=es&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toFiat=eur&toTheMoon=true"
+                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&backgroundColor=1A1A1A&darkMode=true&from=btc&horizontal=false&lang=ru&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toTheMoon=true"
                 style="width: 100%; border: none; border-radius: 16px;"></iframe>
     </div>
 
@@ -188,17 +188,17 @@
 </div>
 
 <script>
-    function updateWidget(lang, fromFiat, darkMode) {
+    function updateWidget(lang, darkMode) {
         const iframe = document.getElementById('changeNOW-widget');
         if (!iframe) return;
         const baseUrl = 'https://changenow.io/embeds/exchange-widget/v2/widget.html';
         const params = {
-            FAQ: 'true', amount: '0.1', amountFiat: '1500',
+            FAQ: 'true', amount: '0.1',
             backgroundColor: darkMode ? '1A1A1A' : 'FFFFFF',
             darkMode: darkMode ? 'true' : 'false',
-            from: 'btc', fromFiat: fromFiat, horizontal: 'false', isFiat: 'true',
+            from: 'btc', horizontal: 'false',
             lang: lang, link_id: '9ccfa63406d1d6', locales: 'true', logo: 'true',
-            primaryColor: '00C26F', to: 'usdterc20', toFiat: fromFiat, toTheMoon: 'true'
+            primaryColor: '00C26F', to: 'usdterc20', toTheMoon: 'true'
         };
         const url = baseUrl + '?' + new URLSearchParams(params).toString();
         iframe.src = url;
@@ -220,7 +220,6 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         let lang = getQueryParam('lang', 'es');
-        let fromFiat = getQueryParam('fromFiat', 'eur');
         let darkMode = getQueryParam('darkMode', 'true') === 'true';
 
         const switcher = document.querySelector('.lang-switcher');
@@ -239,7 +238,7 @@
         }
 
         document.body.style.backgroundColor = darkMode ? '#0f0f0f' : '#f8f9fa';
-        updateWidget(lang, fromFiat, darkMode);
+        updateWidget(lang, darkMode);
 
         const iframe = document.getElementById('changeNOW-widget');
         window.addEventListener('message', function(event) {
