@@ -3,15 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Kripto Satın Al | CryptoSwap Bot</title>
-    <meta name="description" content="Telegram üzerinden anında kripto para değişimi. BTC, ETH, USDT'yi TL, dolar, euro ile satın alın.">
+
+    <!-- ===== SEO: Türkçe sürüm ===== -->
+    <title>Anında Kripto Para Değişimi – KYC Gerekmez | CryptoSwap Bot</title>
+    <meta name="description" content="Anında kripto para değişimi: BTC, ETH, USDT ve 300+ coin. Kayıt yok, düşük komisyon (%0,5), ChangeNOW widget ile güvenli işlem.">
+    <link rel="canonical" href="https://www.cryptoswapbot.online/tr/exchange" />
+    <meta name="robots" content="index, follow">
+
+    <link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange" />
+    <link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange" />
+    <link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange" />
+    <link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange" />
+    <link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange" />
+    <link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange" />
+
+    <meta property="og:title" content="Anında Kripto Para Değişimi – KYC Gerekmez | CryptoSwap Bot">
+    <meta property="og:description" content="BTC, ETH, USDT ve 300+ coin anında değişimi. Kayıt yok, düşük komisyon, güvenli ChangeNOW widget.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cryptoswapbot.online/tr/exchange">
+    <meta property="og:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="CryptoSwap Bot">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anında Kripto Para Değişimi – KYC Gerekmez | CryptoSwap Bot">
+    <meta name="twitter:description" content="BTC, ETH, USDT ve 300+ coin anında değişimi. Kayıt yok, düşük komisyon.">
+    <meta name="twitter:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ExchangeRateSpecification",
+      "name": "Anında Kripto Para Değişimi – CryptoSwap Bot",
+      "description": "BTC'den ETH'ye, USDT'den BNB'ye, SOL'dan XRP'ye ve 300+ coine anında değişim. Kayıt yok, en iyi piyasa oranları, %0,5 komisyon, KYC yok.",
+      "url": "https://www.cryptoswapbot.online/tr/exchange"
+    }
+    </script>
+    <!-- ===== /SEO ===== -->
+
     <link rel="stylesheet" href="/assets/style.css">
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
     <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
     <link rel="shortcut icon" href="/favicon.ico?v=2">
     <meta name="theme-color" content="#0f0f0f">
     <meta name="telegram:theme-color" content="#0f0f0f">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -76,56 +114,70 @@
             background: transparent;
             display: block;
         }
-        .payment-methods {
+        /* ===== SEO bloğu: kripto para değişimi ===== */
+        .crypto-info {
             background: #1a1a1a;
             border-radius: 16px;
-            padding: 24px 20px;
-            margin: 20px 0;
-            text-align: center;
+            padding: 28px 24px;
+            margin: 24px 0;
             border: 1px solid #2a2a2a;
         }
-        .payment-title {
+        .crypto-info__title {
             font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-weight: 700;
+            margin-bottom: 10px;
             color: #fff;
+            text-align: center;
         }
-        .payment-desc {
-            font-size: 0.9rem;
-            color: #aaa;
+        .crypto-info__lead {
+            font-size: 0.95rem;
+            color: #bbb;
             margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .crypto-info__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .crypto-info__card {
+            background: #242424;
+            border-radius: 10px;
+            padding: 14px 16px;
+            border: 1px solid #333;
+        }
+        .crypto-info__card-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #00C26F;
+            margin-bottom: 4px;
+        }
+        .crypto-info__card-text {
+            font-size: 0.8rem;
+            color: #aaa;
             line-height: 1.4;
         }
-        .payment-icons {
+        .crypto-info__pairs {
             display: flex;
             flex-wrap: wrap;
+            gap: 8px;
             justify-content: center;
-            gap: 16px;
-            row-gap: 12px;
         }
-        .payment-icons span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .crypto-info__pairs span {
             background: #2a2a2a;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
             color: #ddd;
         }
-        .payment-icons span::before { font-size: 1rem; }
-        .visa::before { content: "💳"; }
-        .swift::before { content: "🏦"; }
-        .mastercard::before { content: "💳"; }
-        .paypal::before { content: "🅿️"; }
-        .gpay::before { content: "📱"; }
-        .revolut::before { content: "🔄"; }
-        .ach::before { content: "🏦"; }
         @media (max-width: 480px) {
-            .payment-icons span { padding: 5px 10px; font-size: 0.75rem; }
-            .payment-title { font-size: 1.2rem; }
+            .crypto-info__grid { grid-template-columns: 1fr; }
+            .crypto-info__title { font-size: 1.2rem; }
         }
+        /* ===== /SEO bloğu ===== */
         footer {
             text-align: center;
             margin-top: 20px;
@@ -148,6 +200,8 @@
 </head>
 <body>
 <div class="container">
+
+    <!-- Dil seçici -->
     <div class="lang-switcher">
         <button data-lang="ru">RU</button>
         <button data-lang="en">EN</button>
@@ -155,28 +209,57 @@
         <button data-lang="pt">PT</button>
         <button data-lang="tr" class="active">TR</button>
     </div>
-    <h1>🔄 Kripto Satın Al 🔄</h1>
+
+    <!-- Ana başlık -->
+    <h1>🔄 Kripto Para Değişimi 🔄</h1>
     <p class="subtitle">ChangeNOW widget – güvenli ve hızlı</p>
 
+    <!-- Widget -->
     <div class="widget-wrapper">
         <iframe id="changeNOW-widget"
-                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&backgroundColor=1A1A1A&darkMode=true&from=btc&horizontal=false&lang=ru&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toTheMoon=true"
+                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&backgroundColor=1A1A1A&darkMode=true&from=btc&horizontal=false&lang=tr&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toTheMoon=true"
                 style="width: 100%; border: none; border-radius: 16px;"></iframe>
     </div>
 
-    <div class="payment-methods">
-        <div class="payment-title">Fiat ile kripto satın alın</div>
-        <div class="payment-desc">ChangeNOW'da, Visa veya MasterCard kullanarak 50'den fazla itibari para birimiyle herhangi bir kripto para satın alabilirsiniz.</div>
-        <div class="payment-icons">
-            <span class="visa">Visa</span>
-            <span class="swift">Swift</span>
-            <span class="mastercard">Mastercard</span>
-            <span class="paypal">PayPal</span>
-            <span class="gpay">G Pay</span>
-            <span class="revolut">Revolut</span>
-            <span class="ach">ACH</span>
+    <!-- ===== SEO bloğu: kripto para değişimi (TR) ===== -->
+    <div class="crypto-info">
+        <div class="crypto-info__title">Kayıt olmadan kripto para değişimi</div>
+        <div class="crypto-info__lead">
+            BTC'den ETH'ye, USDT'den BNB'ye, SOL'dan XRP'ye ve 300+ coine anında değişim.
+            En iyi piyasa oranları, sabit %0,4 komisyon, 1.000 $'a kadar KYC gerekmez.
+        </div>
+
+        <div class="crypto-info__grid">
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">⚡ Anında</div>
+                <div class="crypto-info__card-text">Değişim ağ onayından sonra 2–5 dakika içinde tamamlanır</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">🔒 KYC yok</div>
+                <div class="crypto-info__card-text">1.000 $'a kadar kimlik doğrulaması veya belge olmadan değişim</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">💰 Düşük komisyon</div>
+                <div class="crypto-info__card-text">Sabit %0,4 komisyon – gizli ücret yok</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">🔁 300+ çift</div>
+                <div class="crypto-info__card-text">Bitcoin, Ethereum, Tether, Solana, Dogecoin ve yüzlercesi</div>
+            </div>
+        </div>
+
+        <div class="crypto-info__pairs">
+            <span>BTC → ETH</span>
+            <span>ETH → USDT</span>
+            <span>BTC → USDT</span>
+            <span>SOL → BNB</span>
+            <span>DOGE → BTC</span>
+            <span>BNB → ETH</span>
+            <span>LTC → BTC</span>
+            <span>XRP → USDT</span>
         </div>
     </div>
+    <!-- ===== /SEO bloğu ===== -->
 
     <footer>
         <a href="/tr/" class="back-link">← Ana Sayfaya Dön</a>
@@ -210,11 +293,11 @@
 
     function switchLanguage(targetLang) {
         if (targetLang === 'tr') {
-            window.location.href = '/tr/exchange.html';
+            window.location.href = '/tr/exchange';
         } else if (targetLang === 'ru') {
-            window.location.href = '/exchange.html';
+            window.location.href = '/exchange';
         } else {
-            window.location.href = '/' + targetLang + '/exchange.html';
+            window.location.href = '/' + targetLang + '/exchange';
         }
     }
 
