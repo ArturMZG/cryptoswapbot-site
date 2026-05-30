@@ -3,15 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Comprar Cripto | CryptoSwap Bot</title>
-    <meta name="description" content="Troca instantânea de criptomoedas através do Telegram. Compre BTC, ETH, USDT com real, dólar, euro e mais.">
+
+    <!-- ===== SEO: versão em português ===== -->
+    <title>Troca instantânea de criptomoedas – Sem KYC | CryptoSwap Bot</title>
+    <meta name="description" content="Troca instantânea de criptomoedas: BTC, ETH, USDT e mais de 300 moedas. Sem registro, taxa fixa de 0,5%, widget seguro da ChangeNOW.">
+    <link rel="canonical" href="https://www.cryptoswapbot.online/pt/exchange" />
+    <meta name="robots" content="index, follow">
+
+    <link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange" />
+    <link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange" />
+    <link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange" />
+    <link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange" />
+    <link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange" />
+    <link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange" />
+
+    <meta property="og:title" content="Troca instantânea de criptomoedas – Sem KYC | CryptoSwap Bot">
+    <meta property="og:description" content="Troque BTC, ETH, USDT e 300+ moedas instantaneamente. Sem registro, taxas baixas, widget seguro da ChangeNOW.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cryptoswapbot.online/pt/exchange">
+    <meta property="og:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="CryptoSwap Bot">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Troca instantânea de criptomoedas – Sem KYC | CryptoSwap Bot">
+    <meta name="twitter:description" content="Troque BTC, ETH, USDT e 300+ moedas instantaneamente. Sem registro, taxas baixas.">
+    <meta name="twitter:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ExchangeRateSpecification",
+      "name": "Troca instantânea de criptomoedas – CryptoSwap Bot",
+      "description": "Troque BTC por ETH, USDT por BNB, SOL por XRP e mais de 300 moedas sem registro. Melhores taxas de mercado, comissão 0,5%, sem KYC.",
+      "url": "https://www.cryptoswapbot.online/pt/exchange"
+    }
+    </script>
+    <!-- ===== /SEO ===== -->
+
     <link rel="stylesheet" href="/assets/style.css">
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
     <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
     <link rel="shortcut icon" href="/favicon.ico?v=2">
     <meta name="theme-color" content="#0f0f0f">
     <meta name="telegram:theme-color" content="#0f0f0f">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -76,56 +114,70 @@
             background: transparent;
             display: block;
         }
-        .payment-methods {
+        /* ===== Bloco SEO: troca de criptomoedas ===== */
+        .crypto-info {
             background: #1a1a1a;
             border-radius: 16px;
-            padding: 24px 20px;
-            margin: 20px 0;
-            text-align: center;
+            padding: 28px 24px;
+            margin: 24px 0;
             border: 1px solid #2a2a2a;
         }
-        .payment-title {
+        .crypto-info__title {
             font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-weight: 700;
+            margin-bottom: 10px;
             color: #fff;
+            text-align: center;
         }
-        .payment-desc {
-            font-size: 0.9rem;
-            color: #aaa;
+        .crypto-info__lead {
+            font-size: 0.95rem;
+            color: #bbb;
             margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .crypto-info__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .crypto-info__card {
+            background: #242424;
+            border-radius: 10px;
+            padding: 14px 16px;
+            border: 1px solid #333;
+        }
+        .crypto-info__card-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #00C26F;
+            margin-bottom: 4px;
+        }
+        .crypto-info__card-text {
+            font-size: 0.8rem;
+            color: #aaa;
             line-height: 1.4;
         }
-        .payment-icons {
+        .crypto-info__pairs {
             display: flex;
             flex-wrap: wrap;
+            gap: 8px;
             justify-content: center;
-            gap: 16px;
-            row-gap: 12px;
         }
-        .payment-icons span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .crypto-info__pairs span {
             background: #2a2a2a;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
             color: #ddd;
         }
-        .payment-icons span::before { font-size: 1rem; }
-        .visa::before { content: "💳"; }
-        .swift::before { content: "🏦"; }
-        .mastercard::before { content: "💳"; }
-        .paypal::before { content: "🅿️"; }
-        .gpay::before { content: "📱"; }
-        .revolut::before { content: "🔄"; }
-        .ach::before { content: "🏦"; }
         @media (max-width: 480px) {
-            .payment-icons span { padding: 5px 10px; font-size: 0.75rem; }
-            .payment-title { font-size: 1.2rem; }
+            .crypto-info__grid { grid-template-columns: 1fr; }
+            .crypto-info__title { font-size: 1.2rem; }
         }
+        /* ===== /Bloco SEO ===== */
         footer {
             text-align: center;
             margin-top: 20px;
@@ -148,6 +200,8 @@
 </head>
 <body>
 <div class="container">
+
+    <!-- Seletor de idioma -->
     <div class="lang-switcher">
         <button data-lang="ru">RU</button>
         <button data-lang="en">EN</button>
@@ -155,28 +209,57 @@
         <button data-lang="pt" class="active">PT</button>
         <button data-lang="tr">TR</button>
     </div>
-    <h1>🔄 Comprar Cripto 🔄</h1>
+
+    <!-- Título principal -->
+    <h1>🔄 Troca de criptomoedas 🔄</h1>
     <p class="subtitle">Widget ChangeNOW – seguro e rápido</p>
 
+    <!-- Widget -->
     <div class="widget-wrapper">
         <iframe id="changeNOW-widget"
-                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&backgroundColor=1A1A1A&darkMode=true&from=btc&horizontal=false&lang=ru&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toTheMoon=true"
+                src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&backgroundColor=1A1A1A&darkMode=true&from=btc&horizontal=false&lang=pt&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toTheMoon=true"
                 style="width: 100%; border: none; border-radius: 16px;"></iframe>
     </div>
 
-    <div class="payment-methods">
-        <div class="payment-title">Compre cripto com moeda fiduciária</div>
-        <div class="payment-desc">Na ChangeNOW, você pode comprar qualquer criptomoeda com mais de 50 moedas fiduciárias usando seu cartão Visa ou MasterCard</div>
-        <div class="payment-icons">
-            <span class="visa">Visa</span>
-            <span class="swift">Swift</span>
-            <span class="mastercard">Mastercard</span>
-            <span class="paypal">PayPal</span>
-            <span class="gpay">G Pay</span>
-            <span class="revolut">Revolut</span>
-            <span class="ach">ACH</span>
+    <!-- ===== Bloco SEO: troca de criptomoedas (PT) ===== -->
+    <div class="crypto-info">
+        <div class="crypto-info__title">Troca de criptomoedas sem registro</div>
+        <div class="crypto-info__lead">
+            Troque BTC por ETH, USDT por BNB, SOL por XRP e mais de 300 moedas instantaneamente.
+            Melhores taxas de mercado, comissão fixa de 0,4%, sem KYC até US$ 1.000.
+        </div>
+
+        <div class="crypto-info__grid">
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">⚡ Instantâneo</div>
+                <div class="crypto-info__card-text">A troca é concluída em 2–5 minutos após a confirmação da rede</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">🔒 Sem KYC</div>
+                <div class="crypto-info__card-text">Troque até US$ 1.000 sem verificação de identidade ou documentos</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">💰 Taxas baixas</div>
+                <div class="crypto-info__card-text">Comissão fixa de 0,4% – sem taxas ocultas</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">🔁 Mais de 300 pares</div>
+                <div class="crypto-info__card-text">Bitcoin, Ethereum, Tether, Solana, Dogecoin e centenas mais</div>
+            </div>
+        </div>
+
+        <div class="crypto-info__pairs">
+            <span>BTC → ETH</span>
+            <span>ETH → USDT</span>
+            <span>BTC → USDT</span>
+            <span>SOL → BNB</span>
+            <span>DOGE → BTC</span>
+            <span>BNB → ETH</span>
+            <span>LTC → BTC</span>
+            <span>XRP → USDT</span>
         </div>
     </div>
+    <!-- ===== /Bloco SEO ===== -->
 
     <footer>
         <a href="/pt/" class="back-link">← Voltar ao início</a>
@@ -210,11 +293,11 @@
 
     function switchLanguage(targetLang) {
         if (targetLang === 'pt') {
-            window.location.href = '/pt/exchange.html';
+            window.location.href = '/pt/exchange';
         } else if (targetLang === 'ru') {
-            window.location.href = '/exchange.html';
+            window.location.href = '/exchange';
         } else {
-            window.location.href = '/' + targetLang + '/exchange.html';
+            window.location.href = '/' + targetLang + '/exchange';
         }
     }
 
