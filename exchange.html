@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Покупка криптовалюты | CryptoSwap Bot</title>
-    <meta name="description" content="Мгновенный обмен криптовалют через Telegram-бота. Покупка BTC, ETH, USDT за рубли, доллары, евро.">
+
+    <!-- ===== SEO: русская версия ===== -->
+    <title>Обмен криптовалюты онлайн | CryptoSwap Bot</title>
+    <meta name="description" content="Мгновенный обмен криптовалют: BTC, ETH, USDT и 300+ монет. Без регистрации, низкие комиссии, безопасный обмен через виджет ChangeNOW.">
+    <link rel="canonical" href="https://www.cryptoswapbot.online/exchange" />
+    <meta name="robots" content="index, follow">
+
+    <link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange" />
+    <link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange" />
+    <link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange" />
+    <link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange" />
+    <link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange" />
+    <link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange" />
+
+    <meta property="og:title" content="Обмен криптовалюты онлайн | CryptoSwap Bot">
+    <meta property="og:description" content="Мгновенный обмен BTC, ETH, USDT и 300+ монет без регистрации. Низкие комиссии, безопасно.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cryptoswapbot.online/exchange">
+    <meta property="og:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CryptoSwap Bot">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Обмен криптовалюты онлайн | CryptoSwap Bot">
+    <meta name="twitter:description" content="Мгновенный обмен BTC, ETH, USDT и 300+ монет без регистрации.">
+    <meta name="twitter:image" content="https://www.cryptoswapbot.online/assets/logo.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ExchangeRateSpecification",
+      "name": "Обмен криптовалюты — CryptoSwap Bot",
+      "description": "Мгновенный онлайн-обмен криптовалют BTC, ETH, USDT и 300+ монет без регистрации через виджет ChangeNOW.",
+      "url": "https://www.cryptoswapbot.online/exchange"
+    }
+    </script>
+    <!-- ===== /SEO ===== -->
+
     <link rel="stylesheet" href="/assets/style.css">
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
     <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
     <link rel="shortcut icon" href="/favicon.ico?v=2">
-    <!-- Цвет темы для браузера и Telegram WebView -->
     <meta name="theme-color" content="#0f0f0f">
     <meta name="telegram:theme-color" content="#0f0f0f">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background-color: #0f0f0f;
             color: #ffffff;
@@ -29,16 +60,10 @@
             justify-content: center;
             align-items: flex-start;
         }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            background: transparent;
-        }
-        .lang-switcher {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        .container { width: 100%; max-width: 600px; margin: 0 auto; background: transparent; }
+
+        /* Переключатель языков */
+        .lang-switcher { text-align: center; margin-bottom: 20px; }
         .lang-switcher button {
             background: transparent;
             border: 1px solid #333;
@@ -55,111 +80,100 @@
             border-color: #00C26F;
             color: white;
         }
-        h1 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
-        }
-        .subtitle {
-            text-align: center;
-            color: #aaa;
-            margin-bottom: 20px;
-        }
+
+        /* Заголовок */
+        h1 { text-align: center; font-size: 1.8rem; margin: 0 0 10px 0; }
+        .subtitle { text-align: center; color: #aaa; margin-bottom: 20px; }
+
+        /* Виджет */
         .widget-wrapper {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            background: transparent;
-            display: flex;
-            justify-content: center;
+            width: 100%; margin: 0; padding: 0;
+            background: transparent; display: flex; justify-content: center;
         }
         iframe {
-            width: 100%;
-            height: 500px; /* начальная высота, потом будет меняться динамически */
-            border: none;
-            border-radius: 16px;
-            background: transparent;
-            display: block;
+            width: 100%; height: 500px; border: none;
+            border-radius: 16px; background: transparent; display: block;
         }
-        .payment-methods {
+
+        /* ===== SEO-блок: обмен криптовалют ===== */
+        .crypto-info {
             background: #1a1a1a;
             border-radius: 16px;
-            padding: 24px 20px;
-            margin: 20px 0;
-            text-align: center;
+            padding: 28px 24px;
+            margin: 24px 0;
             border: 1px solid #2a2a2a;
         }
-        .payment-title {
+        .crypto-info__title {
             font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-weight: 700;
+            margin-bottom: 10px;
             color: #fff;
+            text-align: center;
         }
-        .payment-desc {
-            font-size: 0.9rem;
-            color: #aaa;
+        .crypto-info__lead {
+            font-size: 0.95rem;
+            color: #bbb;
             margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .crypto-info__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .crypto-info__card {
+            background: #242424;
+            border-radius: 10px;
+            padding: 14px 16px;
+            border: 1px solid #333;
+        }
+        .crypto-info__card-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #00C26F;
+            margin-bottom: 4px;
+        }
+        .crypto-info__card-text {
+            font-size: 0.8rem;
+            color: #aaa;
             line-height: 1.4;
         }
-        .payment-icons {
+        .crypto-info__pairs {
             display: flex;
             flex-wrap: wrap;
+            gap: 8px;
             justify-content: center;
-            gap: 16px;
-            row-gap: 12px;
         }
-        .payment-icons span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .crypto-info__pairs span {
             background: #2a2a2a;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
             color: #ddd;
         }
-        .payment-icons span::before {
-            font-size: 1rem;
-        }
-        .visa::before { content: "💳"; }
-        .swift::before { content: "🏦"; }
-        .mastercard::before { content: "💳"; }
-        .paypal::before { content: "🅿️"; }
-        .gpay::before { content: "📱"; }
-        .revolut::before { content: "🔄"; }
-        .ach::before { content: "🏦"; }
+
         @media (max-width: 480px) {
-            .payment-icons span {
-                padding: 5px 10px;
-                font-size: 0.75rem;
-            }
-            .payment-title {
-                font-size: 1.2rem;
-            }
+            .crypto-info__grid { grid-template-columns: 1fr; }
+            .crypto-info__title { font-size: 1.2rem; }
         }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-        }
+        /* ===== /SEO-блок ===== */
+
+        footer { text-align: center; margin-top: 20px; }
         .back-link {
-            display: inline-block;
-            margin-bottom: 10px;
-            color: #00C26F;
-            text-decoration: none;
+            display: inline-block; margin-bottom: 10px;
+            color: #00C26F; text-decoration: none;
         }
-        .disclaimer {
-            font-size: 12px;
-            color: #777;
-        }
-        .disclaimer a {
-            color: #00C26F;
-            text-decoration: none;
-        }
+        .disclaimer { font-size: 12px; color: #777; }
+        .disclaimer a { color: #00C26F; text-decoration: none; }
     </style>
 </head>
 <body>
 <div class="container">
+
+    <!-- Переключатель языков -->
     <div class="lang-switcher">
         <button data-lang="ru" class="active">RU</button>
         <button data-lang="en">EN</button>
@@ -167,34 +181,64 @@
         <button data-lang="pt">PT</button>
         <button data-lang="tr">TR</button>
     </div>
-    <h1>🔄 Покупка криптовалюты 🔄</h1>
+
+    <!-- Заголовок -->
+    <h1>🔄 Обмен криптовалюты 🔄</h1>
     <p class="subtitle">Виджет от ChangeNOW – безопасно и быстро</p>
 
+    <!-- Виджет -->
     <div class="widget-wrapper">
         <iframe id="changeNOW-widget"
                 src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&backgroundColor=1A1A1A&darkMode=true&from=btc&horizontal=false&lang=ru&link_id=9ccfa63406d1d6&locales=true&logo=true&primaryColor=00C26F&to=usdterc20&toTheMoon=true"
                 style="width: 100%; border: none; border-radius: 16px;"></iframe>
     </div>
 
-    <div class="payment-methods">
-        <div class="payment-title">Покупайте криптовалюту с помощью фиата</div>
-        <div class="payment-desc">На ChangeNOW вы можете купить любую криптовалюту за более чем 50 фиатных валют с помощью карт Visa или MasterCard</div>
-        <div class="payment-icons">
-            <span class="visa">Visa</span>
-            <span class="swift">Swift</span>
-            <span class="mastercard">Mastercard</span>
-            <span class="paypal">PayPal</span>
-            <span class="gpay">G Pay</span>
-            <span class="revolut">Revolut</span>
-            <span class="ach">ACH</span>
+    <!-- ===== SEO-блок: обмен крипты (RU) ===== -->
+    <div class="crypto-info">
+        <div class="crypto-info__title">Обмен криптовалюты без регистрации</div>
+        <div class="crypto-info__lead">
+            Обменивайте BTC, ETH, USDT, BNB, SOL и 300+ монет мгновенно —
+            без аккаунта, без KYC до $1 000, по выгодному рыночному курсу.
+        </div>
+
+        <div class="crypto-info__grid">
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">⚡ Мгновенно</div>
+                <div class="crypto-info__card-text">Средняя скорость обмена — 2–5 минут после подтверждения сети</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">🔒 Без KYC</div>
+                <div class="crypto-info__card-text">Обмен до $1 000 без верификации личности и документов</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">💰 Низкие комиссии</div>
+                <div class="crypto-info__card-text">Фиксированная комиссия 0,5% — никаких скрытых платежей</div>
+            </div>
+            <div class="crypto-info__card">
+                <div class="crypto-info__card-title">🔁 300+ пар</div>
+                <div class="crypto-info__card-text">Bitcoin, Ethereum, Tether, Solana, Dogecoin и сотни других</div>
+            </div>
+        </div>
+
+        <div class="crypto-info__pairs">
+            <span>BTC → ETH</span>
+            <span>ETH → USDT</span>
+            <span>BTC → USDT</span>
+            <span>SOL → BNB</span>
+            <span>DOGE → BTC</span>
+            <span>BNB → ETH</span>
+            <span>LTC → BTC</span>
+            <span>XRP → USDT</span>
         </div>
     </div>
+    <!-- ===== /SEO-блок ===== -->
 
     <footer>
         <a href="/" class="back-link">← На главную</a>
         <p class="disclaimer">
             Сервис использует виджет ChangeNOW. Все обмены осуществляются через партнёра.
-            <a href="https://changenow.app.link/referral?link_id=9ccfa63406d1d6" target="_blank" rel="noopener noreferrer">Условия ChangeNOW</a>
+            <a href="https://changenow.app.link/referral?link_id=9ccfa63406d1d6"
+               target="_blank" rel="noopener noreferrer">Условия ChangeNOW</a>
         </p>
     </footer>
 </div>
@@ -203,17 +247,17 @@
     function updateWidget(lang, darkMode) {
         const iframe = document.getElementById('changeNOW-widget');
         if (!iframe) return;
-        const baseUrl = 'https://changenow.io/embeds/exchange-widget/v2/widget.html';
         const params = {
             FAQ: 'true', amount: '0.1',
             backgroundColor: darkMode ? '1A1A1A' : 'FFFFFF',
             darkMode: darkMode ? 'true' : 'false',
             from: 'btc', horizontal: 'false',
-            lang: lang, link_id: '9ccfa63406d1d6', locales: 'true', logo: 'true',
+            lang: lang, link_id: '9ccfa63406d1d6',
+            locales: 'true', logo: 'true',
             primaryColor: '00C26F', to: 'usdterc20', toTheMoon: 'true'
         };
-        const url = baseUrl + '?' + new URLSearchParams(params).toString();
-        iframe.src = url;
+        iframe.src = 'https://changenow.io/embeds/exchange-widget/v2/widget.html?' +
+                     new URLSearchParams(params).toString();
     }
 
     function getQueryParam(param, defaultValue) {
@@ -221,11 +265,10 @@
     }
 
     function switchLanguage(targetLang) {
-        // Для русского языка остаёмся в корне
         if (targetLang === 'ru') {
-            window.location.href = '/exchange.html';
+            window.location.href = '/exchange';
         } else {
-            window.location.href = '/' + targetLang + '/exchange.html';
+            window.location.href = '/' + targetLang + '/exchange';
         }
     }
 
@@ -233,18 +276,15 @@
         let lang = getQueryParam('lang', 'ru');
         let darkMode = getQueryParam('darkMode', 'true') === 'true';
 
-        // Кнопки языков
         const switcher = document.querySelector('.lang-switcher');
         if (switcher) {
-            const buttons = Array.from(switcher.querySelectorAll('button'));
-            buttons.forEach(btn => {
+            switcher.querySelectorAll('button').forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
-                if (btnLang === lang) btn.classList.add('active');
-                else btn.classList.remove('active');
-                btn.addEventListener('click', (e) => {
+                btn.classList.toggle('active', btnLang === lang);
+                btn.addEventListener('click', e => {
                     e.preventDefault();
-                    const targetLang = btn.getAttribute('data-lang');
-                    if (targetLang !== lang) switchLanguage(targetLang);
+                    const t = btn.getAttribute('data-lang');
+                    if (t !== lang) switchLanguage(t);
                 });
             });
         }
@@ -252,7 +292,6 @@
         document.body.style.backgroundColor = darkMode ? '#0f0f0f' : '#f8f9fa';
         updateWidget(lang, darkMode);
 
-        // Динамическая подстройка высоты виджета (убирает серую полосу)
         const iframe = document.getElementById('changeNOW-widget');
         window.addEventListener('message', function(event) {
             if (event.origin !== 'https://changenow.io') return;
@@ -262,44 +301,30 @@
         });
     });
 
-    // ========== ДОПОЛНЕНИЕ ДЛЯ TELEGRAM WEBVIEW ==========
+    // Telegram WebView
     (function() {
-        // Проверяем, открыта ли страница внутри Telegram WebView
         if (window.Telegram && Telegram.WebApp) {
             const webApp = Telegram.WebApp;
-            // Получаем текущую тему Telegram
             const isDarkTelegram = webApp.colorScheme === 'dark';
-            // Текущее значение darkMode из URL (если не задано, по умолчанию true)
             const urlParams = new URLSearchParams(window.location.search);
-            let currentDarkMode = urlParams.get('darkMode');
-            if (currentDarkMode === null) currentDarkMode = 'true';
-            const isDarkCurrent = currentDarkMode === 'true';
-
-            // Если тема Telegram отличается от переданной darkMode, обновляем URL
+            const isDarkCurrent = (urlParams.get('darkMode') ?? 'true') === 'true';
             if (isDarkTelegram !== isDarkCurrent) {
                 const newUrl = new URL(window.location.href);
                 newUrl.searchParams.set('darkMode', isDarkTelegram ? 'true' : 'false');
                 window.location.href = newUrl.toString();
-                return; // перезагрузка страницы
+                return;
             }
-
-            // Синхронизация мета-тега theme-color с темой Telegram
             const setThemeColor = () => {
                 const color = webApp.colorScheme === 'dark' ? '#0f0f0f' : '#ffffff';
                 document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
                 document.querySelector('meta[name="telegram:theme-color"]').setAttribute('content', color);
             };
             setThemeColor();
-
-            // Слушаем событие смены темы в Telegram
             webApp.onEvent('themeChanged', () => {
-                const newDark = webApp.colorScheme === 'dark';
                 const url = new URL(window.location.href);
-                url.searchParams.set('darkMode', newDark ? 'true' : 'false');
+                url.searchParams.set('darkMode', webApp.colorScheme === 'dark' ? 'true' : 'false');
                 window.location.href = url.toString();
             });
-
-            // Сообщаем WebApp, что мини-приложение готово
             webApp.ready();
         }
     })();
