@@ -6,7 +6,7 @@
 
     <!-- ===== SEO: versión en español ===== -->
     <title>Intercambio instantáneo de criptomonedas – Sin KYC | CryptoSwap Bot</title>
-    <meta name="description" content="Intercambio de criptomonedas al instante: BTC, ETH, USDT y más de 300 monedas. Sin registro, comisión fija del 0.5%, widget seguro de ChangeNOW.">
+    <meta name="description" content="Intercambio de criptomonedas al instante: BTC, ETH, USDT y más de 300 monedas. Sin registro, comisión fija del 0.4%, widget seguro de ChangeNOW.">
     <link rel="canonical" href="https://www.cryptoswapbot.online/es/exchange" />
     <meta name="robots" content="index, follow">
 
@@ -37,7 +37,7 @@
       "@context": "https://schema.org",
       "@type": "ExchangeRateSpecification",
       "name": "Intercambio instantáneo de criptomonedas – CryptoSwap Bot",
-      "description": "Intercambia BTC a ETH, USDT a BNB, SOL a XRP y más de 300 monedas sin registro. Mejores tasas de mercado, comisión 0.5%, sin KYC.",
+      "description": "Intercambia BTC a ETH, USDT a BNB, SOL a XRP y más de 300 monedas sin registro. Mejores tasas de mercado, comisión 0.4%, sin KYC.",
       "url": "https://www.cryptoswapbot.online/es/exchange"
     }
     </script>
@@ -68,140 +68,234 @@
             margin: 0 auto;
             background: transparent;
         }
-        .lang-switcher {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        .lang-switcher { text-align: center; margin-bottom: 16px; }
         .lang-switcher button {
-            background: transparent;
-            border: 1px solid #333;
-            color: #aaa;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 0 4px;
-            transition: all 0.2s;
-            font-size: 0.9rem;
+            background: transparent; border: 1px solid #333; color: #aaa;
+            padding: 6px 12px; border-radius: 6px; cursor: pointer;
+            margin: 0 4px; transition: all 0.2s; font-size: 0.9rem;
         }
-        .lang-switcher button.active {
-            background: #00C26F;
-            border-color: #00C26F;
-            color: white;
+        .lang-switcher button.active { background: #00C26F; border-color: #00C26F; color: white; }
+        h1 { text-align: center; font-size: 1.8rem; margin: 0 0 10px 0; }
+        .subtitle { text-align: center; color: #aaa; margin-bottom: 16px; }
+        .widget-wrapper { width: 100%; margin: 0; padding: 0; background: transparent; display: flex; justify-content: center; }
+        iframe { width: 100%; height: 500px; border: none; border-radius: 16px; background: transparent; display: block; }
+
+        /* ===== SEO block ===== */
+        .crypto-info {
+            background: #1a1a1a; border-radius: 16px; padding: 24px 20px;
+            margin: 12px 0; border: 1px solid #2a2a2a;
         }
-        h1 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
+        .crypto-info__title { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: #fff; text-align: center; }
+        .crypto-info__lead { font-size: 0.95rem; color: #bbb; margin-bottom: 18px; line-height: 1.6; text-align: center; }
+        .crypto-info__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+        .crypto-info__card { background: #242424; border-radius: 10px; padding: 14px 16px; border: 1px solid #333; }
+        .crypto-info__card-title { font-size: 0.85rem; font-weight: 600; color: #00C26F; margin-bottom: 4px; }
+        .crypto-info__card-text { font-size: 0.8rem; color: #aaa; line-height: 1.4; }
+        .crypto-info__pairs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .crypto-info__pairs span { background: #2a2a2a; border: 1px solid #333; border-radius: 20px; padding: 5px 12px; font-size: 0.8rem; color: #ddd; }
+        @media (max-width: 480px) { .crypto-info__grid { grid-template-columns: 1fr; } .crypto-info__title { font-size: 1.2rem; } }
+        /* ===== /SEO block ===== */
+
+        /* ===== Bloque de verificación de estado ===== */
+        .status-check {
+            background: #1a1a1a; border-radius: 16px; padding: 24px 20px;
+            margin: 12px 0; border: 1px solid #2a2a2a;
         }
-        .subtitle {
-            text-align: center;
-            color: #aaa;
-            margin-bottom: 20px;
+        .status-check__title {
+            font-size: 1.2rem; font-weight: 700; color: #fff;
+            text-align: center; margin-bottom: 6px;
         }
-        .widget-wrapper {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            background: transparent;
+        .status-check__desc {
+            font-size: 0.8rem; color: #888; text-align: center;
+            margin-bottom: 16px; line-height: 1.4;
+        }
+        .status-check__input-row { display: flex; gap: 8px; margin-bottom: 8px; }
+        .status-check__input {
+            flex: 1; background: #242424; border: 1px solid #333; border-radius: 10px;
+            padding: 12px 16px; color: #fff; font-size: 0.9rem; outline: none;
+            transition: border-color 0.2s;
+        }
+        .status-check__input:focus { border-color: #00C26F; }
+        .status-check__input::placeholder { color: #555; }
+        .status-check__btn {
+            background: #00C26F; border: none; border-radius: 10px;
+            padding: 12px 20px; color: #fff; font-size: 0.9rem;
+            font-weight: 600; cursor: pointer; transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .status-check__btn:hover { background: #00a85e; }
+        .status-check__btn:disabled { background: #333; cursor: not-allowed; color: #666; }
+
+        .status-check__error {
+            display: none; background: #2a1a1a; border: 1px solid #c0392b;
+            border-radius: 10px; padding: 12px 16px; color: #e74c3c;
+            font-size: 0.8rem; margin-bottom: 12px; text-align: center;
+        }
+
+        .status-check__progress { display: none; }
+
+        /* Progress Steps */
+        .status-check__steps {
+            display: flex; justify-content: space-between;
+            margin-bottom: 18px; position: relative; padding: 0 4px;
+        }
+        .status-check__steps::before {
+            content: ''; position: absolute; top: 14px;
+            left: 12%; right: 12%; height: 2px; background: #333; z-index: 0;
+        }
+        .status-check__step {
+            display: flex; flex-direction: column; align-items: center;
+            position: relative; z-index: 1; flex: 1;
+        }
+        .status-check__step-dot {
+            width: 28px; height: 28px; border-radius: 50%; background: #333;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; margin-bottom: 6px; transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .status-check__step-label {
+            font-size: 0.6rem; color: #555; text-align: center;
+            max-width: 60px; transition: color 0.3s;
+        }
+        .status-check__step.active .status-check__step-dot {
+            background: #00C26F; border-color: #00ff8a;
+            box-shadow: 0 0 12px rgba(0, 194, 111, 0.4);
+            animation: stepPulse 2s infinite;
+        }
+        .status-check__step.active .status-check__step-label { color: #00C26F; font-weight: 600; }
+        .status-check__step.completed .status-check__step-dot { background: #00C26F; }
+        .status-check__step.completed .status-check__step-label { color: #00C26F; }
+        .status-check__step.step-error .status-check__step-dot { background: #c0392b; border-color: #e74c3c; }
+        .status-check__step.step-error .status-check__step-label { color: #e74c3c; }
+
+        @keyframes stepPulse {
+            0%, 100% { box-shadow: 0 0 8px rgba(0,194,111,0.3); }
+            50% { box-shadow: 0 0 18px rgba(0,194,111,0.6); }
+        }
+
+        /* Details */
+        .status-check__details {
+            background: #242424; border-radius: 10px; padding: 14px 16px;
+            margin-bottom: 14px; border: 1px solid #333;
+        }
+        .status-check__detail-row {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            padding: 7px 0; border-bottom: 1px solid #2a2a2a; font-size: 0.8rem;
+        }
+        .status-check__detail-row:last-child { border-bottom: none; }
+        .status-check__detail-label { color: #777; flex-shrink: 0; margin-right: 12px; }
+        .status-check__detail-value {
+            color: #ddd; text-align: right; word-break: break-all;
+            max-width: 65%; line-height: 1.4;
+        }
+        .status-check__detail-value a { color: #00C26F; text-decoration: none; }
+        .status-check__detail-value a:hover { text-decoration: underline; }
+
+        /* Status badge */
+        .status-badge {
+            display: inline-block; padding: 2px 10px; border-radius: 12px;
+            font-size: 0.75rem; font-weight: 600;
+        }
+        .status-badge--active { background: rgba(0,194,111,0.15); color: #00C26F; }
+        .status-badge--done { background: rgba(0,194,111,0.25); color: #00C26F; }
+        .status-badge--error { background: rgba(231,76,60,0.15); color: #e74c3c; }
+        .status-badge--pending { background: rgba(241,196,15,0.15); color: #f1c40f; }
+
+        /* Footer row */
+        .status-check__footer {
             display: flex;
             justify-content: center;
+            margin-top: 16px;
         }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            border-radius: 16px;
+        .status-check__support-btn {
             background: transparent;
-            display: block;
-        }
-        /* ===== Bloque SEO: intercambio de criptomonedas ===== */
-        .crypto-info {
-            background: #1a1a1a;
-            border-radius: 16px;
-            padding: 28px 24px;
-            margin: 24px 0;
-            border: 1px solid #2a2a2a;
-        }
-        .crypto-info__title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #fff;
-            text-align: center;
-        }
-        .crypto-info__lead {
-            font-size: 0.95rem;
-            color: #bbb;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            text-align: center;
-        }
-        .crypto-info__grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        .crypto-info__card {
-            background: #242424;
+            border: 1px solid #00C26F;
             border-radius: 10px;
-            padding: 14px 16px;
-            border: 1px solid #333;
-        }
-        .crypto-info__card-title {
+            padding: 10px 20px;
+            color: #00C26F;
             font-size: 0.85rem;
             font-weight: 600;
-            color: #00C26F;
-            margin-bottom: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .crypto-info__card-text {
-            font-size: 0.8rem;
-            color: #aaa;
-            line-height: 1.4;
+        .status-check__support-btn:hover {
+            background: #00C26F;
+            color: #fff;
         }
-        .crypto-info__pairs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
+        .status-check__dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #00C26F; animation: dotPulse 1.5s infinite;
         }
-        .crypto-info__pairs span {
-            background: #2a2a2a;
-            border: 1px solid #333;
-            border-radius: 20px;
-            padding: 5px 12px;
-            font-size: 0.8rem;
-            color: #ddd;
+        @keyframes dotPulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+        .status-check__copied {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: #00C26F; color: #fff; padding: 8px 20px;
+            border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+            opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 999;
         }
+        .status-check__copied.show { opacity: 1; }
+
+        /* ===== Mobile adaptations for status block ===== */
         @media (max-width: 480px) {
-            .crypto-info__grid { grid-template-columns: 1fr; }
-            .crypto-info__title { font-size: 1.2rem; }
+            .status-check__support-btn { width: 100%; }
+            .status-check__input-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .status-check__btn {
+                width: 100%;
+                padding: 14px;
+                font-size: 1rem;
+                white-space: normal;
+            }
+            .status-check__input {
+                font-size: 1rem;
+                padding: 14px 16px;
+            }
+            .status-check__steps::before {
+                left: 5%;
+                right: 5%;
+            }
+            .status-check__step-label {
+                font-size: 0.55rem;
+                max-width: 50px;
+            }
+            .status-check__step-dot {
+                width: 24px;
+                height: 24px;
+                font-size: 0.6rem;
+            }
+            .status-check__steps {
+                padding: 0;
+            }
+            .status-check__detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .status-check__detail-label {
+                margin-bottom: 4px;
+            }
+            .status-check__detail-value {
+                text-align: left;
+                max-width: 100%;
+            }
+            .status-check {
+                padding: 20px 16px;
+            }
         }
-        /* ===== /Bloque SEO ===== */
-        footer {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 10px;
-            color: #00C26F;
-            text-decoration: none;
-        }
-        .disclaimer {
-            font-size: 12px;
-            color: #777;
-        }
-        .disclaimer a {
-            color: #00C26F;
-            text-decoration: none;
-        }
+        /* ===== /Bloque de verificación de estado ===== */
+
+        footer { text-align: center; margin-top: 12px; }
+        .back-link { display: inline-block; margin-bottom: 10px; color: #00C26F; text-decoration: none; }
+        .disclaimer { font-size: 12px; color: #777; }
+        .disclaimer a { color: #00C26F; text-decoration: none; }
     </style>
 </head>
 <body>
 <div class="container">
 
-    <!-- Selector de idioma -->
+    <!-- Language switcher -->
     <div class="lang-switcher">
         <button data-lang="ru">RU</button>
         <button data-lang="en">EN</button>
@@ -210,7 +304,7 @@
         <button data-lang="tr">TR</button>
     </div>
 
-    <!-- Título principal -->
+    <!-- Main header -->
     <h1>🔄 Intercambio de criptomonedas 🔄</h1>
     <p class="subtitle">Widget de ChangeNOW – seguro y rápido</p>
 
@@ -221,7 +315,58 @@
                 style="width: 100%; border: none; border-radius: 16px;"></iframe>
     </div>
 
-    <!-- ===== Bloque SEO: intercambio de criptomonedas (ES) ===== -->
+    <!-- ===== Bloque de verificación de estado ===== -->
+    <div class="status-check">
+        <div class="status-check__title">📋 Verifica el estado de tu intercambio</div>
+        <div class="status-check__desc">Pega tu ID de intercambio para seguir el progreso en tiempo real.</div>
+
+        <div class="status-check__input-row">
+            <input type="text" id="exchange-id-input" class="status-check__input"
+                   placeholder="ej. abc123def456" autocomplete="off" spellcheck="false" />
+            <button id="check-status-btn" class="status-check__btn">Verificar estado</button>
+        </div>
+
+        <div id="status-error" class="status-check__error"></div>
+
+        <!-- Progress bar (hidden until successful API response) -->
+        <div id="status-progress" class="status-check__progress" style="display: none;">
+            <div class="status-check__steps" id="status-steps">
+                <div class="status-check__step" data-step="waiting">
+                    <div class="status-check__step-dot">⏳</div>
+                    <div class="status-check__step-label">Esperando</div>
+                </div>
+                <div class="status-check__step" data-step="confirming">
+                    <div class="status-check__step-dot">🔍</div>
+                    <div class="status-check__step-label">Confirmando</div>
+                </div>
+                <div class="status-check__step" data-step="exchanging">
+                    <div class="status-check__step-dot">🔄</div>
+                    <div class="status-check__step-label">Intercambiando</div>
+                </div>
+                <div class="status-check__step" data-step="sending">
+                    <div class="status-check__step-dot">📤</div>
+                    <div class="status-check__step-label">Enviando</div>
+                </div>
+                <div class="status-check__step" data-step="finished">
+                    <div class="status-check__step-dot">✅</div>
+                    <div class="status-check__step-label">Completado</div>
+                </div>
+            </div>
+            <div class="status-check__details" id="status-details"></div>
+            <div class="status-check__auto-refresh" id="auto-refresh-indicator" style="display:none;">
+                <span class="status-check__dot"></span>
+                <span id="auto-refresh-timer">Auto-refresh en 30s</span>
+            </div>
+        </div>
+
+        <!-- Support button – always visible -->
+        <div class="status-check__footer" style="margin-top: 16px; display: flex; justify-content: center;">
+            <button class="status-check__support-btn" id="support-btn">💬 Contactar con el soporte de ChangeNOW</button>
+        </div>
+    </div>
+    <!-- ===== /Bloque de verificación de estado ===== -->
+
+    <!-- ===== SEO block: crypto exchange (ES) ===== -->
     <div class="crypto-info">
         <div class="crypto-info__title">Intercambio de criptomonedas sin registro</div>
         <div class="crypto-info__lead">
@@ -249,17 +394,12 @@
         </div>
 
         <div class="crypto-info__pairs">
-            <span>BTC → ETH</span>
-            <span>ETH → USDT</span>
-            <span>BTC → USDT</span>
-            <span>SOL → BNB</span>
-            <span>DOGE → BTC</span>
-            <span>BNB → ETH</span>
-            <span>LTC → BTC</span>
-            <span>XRP → USDT</span>
+            <span>BTC → ETH</span><span>ETH → USDT</span><span>BTC → USDT</span>
+            <span>SOL → BNB</span><span>DOGE → BTC</span><span>BNB → ETH</span>
+            <span>LTC → BTC</span><span>XRP → USDT</span>
         </div>
     </div>
-    <!-- ===== /Bloque SEO ===== -->
+    <!-- ===== /SEO block ===== -->
 
     <footer>
         <a href="/es/" class="back-link">← Volver al inicio</a>
@@ -270,52 +410,351 @@
     </footer>
 </div>
 
+<!-- Toast notification -->
+<div class="status-check__copied" id="toast-copied">✓ ID de intercambio copiado al portapapeles</div>
+
 <script>
+    /* ============================================================
+     *  CONFIG
+     * ============================================================ */
+    const CN_API_KEY = '7e8fe986f6958b6661f606528ad52e946480e44a10ae68e1e4235629f314585c'; // ← Cambia por tu clave API de ChangeNOW
+
+    let autoRefreshInterval = null;
+    let countdownInterval   = null;
+    let countdownValue      = 30;
+    let currentExchangeId   = '';
+    let lastFetchedData     = null;
+
+    /* ============================================================
+     *  WIDGET + LANGUAGE (existing)
+     * ============================================================ */
     function updateWidget(lang, darkMode) {
         const iframe = document.getElementById('changeNOW-widget');
         if (!iframe) return;
-        const baseUrl = 'https://changenow.io/embeds/exchange-widget/v2/widget.html';
         const params = {
-            FAQ: 'true', amount: '0.1',
-            backgroundColor: darkMode ? '1A1A1A' : 'FFFFFF',
-            darkMode: darkMode ? 'true' : 'false',
-            from: 'btc', horizontal: 'false',
-            lang: lang, link_id: '9ccfa63406d1d6', locales: 'true', logo: 'true',
-            primaryColor: '00C26F', to: 'usdterc20', toTheMoon: 'true'
+            FAQ:'true', amount:'0.1',
+            backgroundColor: darkMode?'1A1A1A':'FFFFFF',
+            darkMode: darkMode?'true':'false',
+            from:'btc', horizontal:'false', lang:lang,
+            link_id:'9ccfa63406d1d6', locales:'true', logo:'true',
+            primaryColor:'00C26F', to:'usdterc20', toTheMoon:'true'
         };
-        const url = baseUrl + '?' + new URLSearchParams(params).toString();
-        iframe.src = url;
+        iframe.src = 'https://changenow.io/embeds/exchange-widget/v2/widget.html?' +
+                      new URLSearchParams(params).toString();
     }
 
-    function getQueryParam(param, defaultValue) {
-        return new URLSearchParams(window.location.search).get(param) || defaultValue;
+    function getQueryParam(p, d) {
+        return new URLSearchParams(window.location.search).get(p) || d;
     }
 
-    function switchLanguage(targetLang) {
-        if (targetLang === 'es') {
-            window.location.href = '/es/exchange';
-        } else if (targetLang === 'ru') {
-            window.location.href = '/exchange';
-        } else {
-            window.location.href = '/' + targetLang + '/exchange';
+    function switchLanguage(t) {
+        if (t==='es') window.location.href = '/es/exchange';
+        else if (t==='ru') window.location.href = '/exchange';
+        else window.location.href = '/'+t+'/exchange';
+    }
+
+    /* ============================================================
+     *  STATUS CHECK — core
+     * ============================================================ */
+    function checkExchangeStatus() {
+        const input = document.getElementById('exchange-id-input');
+        const id    = input.value.trim();
+
+        if (!id) { showError('Por favor, introduce tu ID de intercambio.'); return; }
+        hideError();
+
+        const btn = document.getElementById('check-status-btn');
+        btn.disabled = true;
+        btn.textContent = 'Comprobando…';
+
+        const headers = {};
+        if (CN_API_KEY) headers['x-changenow-api-key'] = CN_API_KEY;
+
+        fetch('https://api.changenow.io/v2/exchange/by-id?id=' + encodeURIComponent(id), { headers })
+            .then(res => {
+                if (res.status === 401) throw new Error('Se necesita una API key. Añade tu clave API de ChangeNOW.');
+                if (res.status === 404) throw new Error('Intercambio no encontrado. Comprueba el ID e inténtalo de nuevo.');
+                if (!res.ok) throw new Error('Error del servidor (' + res.status + '). Vuelve a intentarlo más tarde.');
+                return res.json();
+            })
+            .then(data => {
+                btn.disabled = false;
+                btn.textContent = 'Verificar estado';
+                currentExchangeId = id;
+                lastFetchedData = data;
+                renderStatus(data);
+                setupAutoRefresh(data.status);
+            })
+            .catch(err => {
+                btn.disabled = false;
+                btn.textContent = 'Verificar estado';
+                showError(err.message || 'Error al comprobar el estado del intercambio.');
+                document.getElementById('status-progress').style.display = 'none';
+                stopAutoRefresh();
+            });
+    }
+
+    /* ============================================================
+     *  RENDER STATUS
+     * ============================================================ */
+    function renderStatus(data) {
+        const progress = document.getElementById('status-progress');
+        progress.style.display = 'block';
+
+        updateSteps(data.status);
+        renderDetails(data);
+    }
+
+    function updateSteps(status) {
+        const steps     = document.querySelectorAll('#status-steps .status-check__step');
+        const norm      = normalizeStep(status);
+        const isTerminal = ['failed','refunded','expired'].includes(status);
+        const order     = ['waiting','confirming','exchanging','sending','finished'];
+        const current   = order.indexOf(norm);
+
+        steps.forEach(step => {
+            const name  = step.getAttribute('data-step');
+            const idx   = order.indexOf(name);
+            step.classList.remove('active','completed','step-error');
+
+            if (isTerminal) {
+                if (name === 'finished') {
+                    step.classList.add('step-error');
+                    const dot   = step.querySelector('.status-check__step-dot');
+                    const label = step.querySelector('.status-check__step-label');
+                    dot.textContent   = status === 'failed' ? '❌' : status === 'refunded' ? '💸' : '⏰';
+                    label.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+                }
+            } else {
+                if (idx < current)      step.classList.add('completed');
+                else if (idx === current) step.classList.add('active');
+            }
+        });
+    }
+
+    function renderDetails(data) {
+        const el = document.getElementById('status-details');
+        const fromCoin  = (data.from || '').toUpperCase();
+        const toCoin    = (data.to   || '').toUpperCase();
+        const fromAmt   = data.amountFrom || data.amount || '—';
+        const toAmt     = data.amountTo   || data.expectedAmount || '—';
+        const statusTxt = getStatusLabel(data.status);
+        const statusClr = getStatusColor(data.status);
+        const badgeCls  = getBadgeClass(data.status);
+        const created   = data.createdAt ? new Date(data.createdAt).toLocaleString('es-ES',{
+            year:'numeric',month:'short',day:'numeric',
+            hour:'2-digit',minute:'2-digit',second:'2-digit'
+        }) : '—';
+
+        let html = '';
+        html += row('ID de intercambio', esc(data.id || '—'));
+        html += row('Estado', `<span class="status-badge ${badgeCls}">${statusTxt}</span>`);
+        html += row('Tú envías',   `${fromAmt} ${fromCoin}`);
+        html += row('Tú recibes', `${toAmt} ${toCoin}`);
+        html += row('Creado', created);
+
+        if (data.payAddress)
+            html += row('Dirección de depósito', `<span style="font-size:0.72rem">${esc(data.payAddress)}</span>`);
+
+        if (data.payinHash) {
+            const url = explorerUrl(data.from, data.payinHash);
+            html += row('TX de depósito', `<a href="${url}" target="_blank" rel="noopener">${shorten(data.payinHash)}</a>`);
         }
+        if (data.payoutHash) {
+            const url = explorerUrl(data.to, data.payoutHash);
+            html += row('TX de envío', `<a href="${url}" target="_blank" rel="noopener">${shorten(data.payoutHash)}</a>`);
+        }
+        if (data.payoutAddress)
+            html += row('Dirección de recepción', `<span style="font-size:0.72rem">${esc(data.payoutAddress)}</span>`);
+
+        el.innerHTML = html;
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        let lang = getQueryParam('lang', 'es');
-        let darkMode = getQueryParam('darkMode', 'true') === 'true';
+    function row(label, value) {
+        return `<div class="status-check__detail-row">
+                    <span class="status-check__detail-label">${label}</span>
+                    <span class="status-check__detail-value">${value}</span>
+                </div>`;
+    }
 
+    /* ============================================================
+     *  AUTO-REFRESH
+     * ============================================================ */
+    function setupAutoRefresh(status) {
+        stopAutoRefresh();
+
+        const final = ['finished','failed','refunded','expired'];
+        if (final.includes(status)) {
+            document.getElementById('auto-refresh-indicator').style.display = 'none';
+            return;
+        }
+
+        const indicator = document.getElementById('auto-refresh-indicator');
+        const timer     = document.getElementById('auto-refresh-timer');
+        indicator.style.display = 'flex';
+        countdownValue = 30;
+        timer.textContent = 'Auto-refresh en 30s';
+
+        countdownInterval = setInterval(() => {
+            countdownValue--;
+            if (countdownValue <= 0) countdownValue = 30;
+            timer.textContent = 'Auto-refresh en ' + countdownValue + 's';
+        }, 1000);
+
+        autoRefreshInterval = setInterval(() => {
+            if (!currentExchangeId) { stopAutoRefresh(); return; }
+
+            const headers = {};
+            if (CN_API_KEY) headers['x-changenow-api-key'] = CN_API_KEY;
+
+            fetch('https://api.changenow.io/v2/exchange/by-id?id=' + encodeURIComponent(currentExchangeId), { headers })
+                .then(r => r.json())
+                .then(data => {
+                    lastFetchedData = data;
+                    renderStatus(data);
+                    if (['finished','failed','refunded','expired'].includes(data.status)) {
+                        stopAutoRefresh();
+                    }
+                })
+                .catch(() => {});
+        }, 30000);
+    }
+
+    function stopAutoRefresh() {
+        if (autoRefreshInterval) { clearInterval(autoRefreshInterval); autoRefreshInterval = null; }
+        if (countdownInterval)   { clearInterval(countdownInterval);   countdownInterval = null; }
+        document.getElementById('auto-refresh-indicator').style.display = 'none';
+    }
+
+    /* ============================================================
+     *  SUPPORT
+     * ============================================================ */
+    function openSupport() {
+        const inputVal = document.getElementById('exchange-id-input').value.trim();
+        const idToCopy = inputVal || (lastFetchedData?.id) || currentExchangeId;
+        if (idToCopy) {
+            navigator.clipboard.writeText(idToCopy).then(() => {
+                showToast();
+            }).catch(() => {});
+        }
+        setTimeout(() => {
+            window.open('https://support.changenow.io/', '_blank', 'noopener');
+        }, 800);
+    }
+
+    function showToast() {
+        const t = document.getElementById('toast-copied');
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    /* ============================================================
+     *  HELPERS
+     * ============================================================ */
+    const STEP_MAP = {
+        'new':'waiting','waiting':'waiting',
+        'confirming':'confirming','hashReceived':'confirming',
+        'exchanging':'exchanging',
+        'sending':'sending','verifying':'sending',
+        'finished':'finished','complete':'finished',
+        'failed':'failed','refunded':'refunded','expired':'expired'
+    };
+
+    function normalizeStep(s) { return STEP_MAP[s] || 'waiting'; }
+
+    function getStatusLabel(s) {
+        const m = {
+            'new':'Creado','waiting':'Esperando depósito','confirming':'Confirmando depósito',
+            'hashReceived':'Hash recibido','exchanging':'Intercambiando','sending':'Enviando a la cartera',
+            'finished':'Completado','failed':'Fallido','refunded':'Reembolsado','expired':'Expirado',
+            'complete':'Completado','verifying':'Verificando'
+        };
+        return m[s] || s;
+    }
+
+    function getStatusColor(s) {
+        if (['finished','complete'].includes(s)) return '#00C26F';
+        if (['failed','refunded','expired'].includes(s)) return '#e74c3c';
+        if (['exchanging','sending','verifying'].includes(s)) return '#3498db';
+        return '#f1c40f';
+    }
+
+    function getBadgeClass(s) {
+        if (['finished','complete'].includes(s)) return 'status-badge--done';
+        if (['failed','refunded','expired'].includes(s)) return 'status-badge--error';
+        if (['exchanging','sending','verifying'].includes(s)) return 'status-badge--active';
+        return 'status-badge--pending';
+    }
+
+    function shorten(h) {
+        if (!h) return '—';
+        return h.length > 20 ? h.slice(0,8)+'…'+h.slice(-8) : h;
+    }
+
+    function esc(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+    function explorerUrl(coin, hash) {
+        if (!coin || !hash) return '#';
+        const c = coin.toLowerCase().replace(/[^a-z0-9]/g,'');
+        const m = {
+            'btc':'https://blockchair.com/bitcoin/transaction/',
+            'eth':'https://etherscan.io/tx/',
+            'ltc':'https://blockchair.com/litecoin/transaction/',
+            'doge':'https://blockchair.com/dogecoin/transaction/',
+            'xrp':'https://xrpscan.com/tx/',
+            'xlm':'https://stellarchain.io/tx/',
+            'trx':'https://tronscan.org/#/transaction/',
+            'ada':'https://cardanoscan.io/transaction/',
+            'bnb':'https://bscscan.com/tx/',
+            'sol':'https://solscan.io/tx/',
+            'matic':'https://polygonscan.com/tx/',
+            'pol':'https://polygonscan.com/tx/',
+            'arb':'https://arbiscan.io/tx/',
+            'avax':'https://snowtrace.io/tx/',
+            'dot':'https://polkadot.subscan.io/extrinsic/',
+            'atom':'https://mintscan.io/cosmos/tx/',
+            'fil':'https://filfox.info/en/message/'
+        };
+        if (m[c]) return m[c] + hash;
+        if (c.includes('usdt')) {
+            if (c.includes('trc') || c.includes('tron')) return 'https://tronscan.org/#/transaction/'+hash;
+            if (c.includes('bsc') || c.includes('bnb'))  return 'https://bscscan.com/tx/'+hash;
+            if (c.includes('arb'))                        return 'https://arbiscan.io/tx/'+hash;
+            if (c.includes('sol'))                        return 'https://solscan.io/tx/'+hash;
+            if (c.includes('pol') || c.includes('matic')) return 'https://polygonscan.com/tx/'+hash;
+            return 'https://etherscan.io/tx/'+hash;
+        }
+        if (c.includes('erc20') || c.includes('eth'))  return 'https://etherscan.io/tx/'+hash;
+        if (c.includes('bep20') || c.includes('bsc'))  return 'https://bscscan.com/tx/'+hash;
+        return 'https://blockchair.com/search?q='+hash;
+    }
+
+    function showError(msg) {
+        const el = document.getElementById('status-error');
+        el.textContent = msg;
+        el.style.display = 'block';
+    }
+    function hideError() {
+        document.getElementById('status-error').style.display = 'none';
+    }
+
+    /* ============================================================
+     *  INIT
+     * ============================================================ */
+    document.addEventListener('DOMContentLoaded', () => {
+        let lang     = getQueryParam('lang','es');
+        let darkMode = getQueryParam('darkMode','true') === 'true';
+
+        /* language switcher */
         const switcher = document.querySelector('.lang-switcher');
         if (switcher) {
-            const buttons = Array.from(switcher.querySelectorAll('button'));
-            buttons.forEach(btn => {
-                const btnLang = btn.getAttribute('data-lang');
-                if (btnLang === lang) btn.classList.add('active');
-                else btn.classList.remove('active');
-                btn.addEventListener('click', (e) => {
+            switcher.querySelectorAll('button').forEach(btn => {
+                const bl = btn.getAttribute('data-lang');
+                btn.classList.toggle('active', bl === lang);
+                btn.addEventListener('click', e => {
                     e.preventDefault();
-                    const targetLang = btn.getAttribute('data-lang');
-                    if (targetLang !== lang) switchLanguage(targetLang);
+                    const t = btn.getAttribute('data-lang');
+                    if (t !== lang) switchLanguage(t);
                 });
             });
         }
@@ -323,46 +762,47 @@
         document.body.style.backgroundColor = darkMode ? '#0f0f0f' : '#f8f9fa';
         updateWidget(lang, darkMode);
 
+        /* widget auto-resize */
         const iframe = document.getElementById('changeNOW-widget');
-        window.addEventListener('message', function(event) {
-            if (event.origin !== 'https://changenow.io') return;
-            if (event.data && event.data.type === 'resize' && event.data.height) {
-                iframe.style.height = event.data.height + 'px';
-            }
+        window.addEventListener('message', e => {
+            if (e.origin !== 'https://changenow.io') return;
+            if (e.data && e.data.type === 'resize' && e.data.height) iframe.style.height = e.data.height+'px';
         });
+
+        /* status check listeners */
+        document.getElementById('check-status-btn').addEventListener('click', checkExchangeStatus);
+        document.getElementById('exchange-id-input').addEventListener('keydown', e => {
+            if (e.key === 'Enter') { e.preventDefault(); checkExchangeStatus(); }
+        });
+        document.getElementById('support-btn').addEventListener('click', openSupport);
     });
 
-    (function() {
+    /* Telegram WebView */
+    (function(){
         if (window.Telegram && Telegram.WebApp) {
-            const webApp = Telegram.WebApp;
-            const isDarkTelegram = webApp.colorScheme === 'dark';
-            const urlParams = new URLSearchParams(window.location.search);
-            let currentDarkMode = urlParams.get('darkMode');
-            if (currentDarkMode === null) currentDarkMode = 'true';
-            const isDarkCurrent = currentDarkMode === 'true';
-
-            if (isDarkTelegram !== isDarkCurrent) {
-                const newUrl = new URL(window.location.href);
-                newUrl.searchParams.set('darkMode', isDarkTelegram ? 'true' : 'false');
-                window.location.href = newUrl.toString();
+            const wa = Telegram.WebApp;
+            const isDark = wa.colorScheme === 'dark';
+            const urlP   = new URLSearchParams(window.location.search);
+            let cur = urlP.get('darkMode');
+            if (cur === null) cur = 'true';
+            if (isDark !== (cur==='true')) {
+                const u = new URL(window.location.href);
+                u.searchParams.set('darkMode', isDark?'true':'false');
+                window.location.href = u.toString();
                 return;
             }
-
-            const setThemeColor = () => {
-                const color = webApp.colorScheme === 'dark' ? '#0f0f0f' : '#ffffff';
-                document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
-                document.querySelector('meta[name="telegram:theme-color"]').setAttribute('content', color);
+            const setTheme = () => {
+                const c = wa.colorScheme==='dark'?'#0f0f0f':'#ffffff';
+                document.querySelector('meta[name="theme-color"]').setAttribute('content',c);
+                document.querySelector('meta[name="telegram:theme-color"]').setAttribute('content',c);
             };
-            setThemeColor();
-
-            webApp.onEvent('themeChanged', () => {
-                const newDark = webApp.colorScheme === 'dark';
-                const url = new URL(window.location.href);
-                url.searchParams.set('darkMode', newDark ? 'true' : 'false');
-                window.location.href = url.toString();
+            setTheme();
+            wa.onEvent('themeChanged', () => {
+                const u = new URL(window.location.href);
+                u.searchParams.set('darkMode', wa.colorScheme==='dark'?'true':'false');
+                window.location.href = u.toString();
             });
-
-            webApp.ready();
+            wa.ready();
         }
     })();
 </script>
