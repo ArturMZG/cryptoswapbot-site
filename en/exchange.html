@@ -205,6 +205,7 @@
         .status-check__footer {
             display: flex; justify-content: space-between;
             align-items: center; gap: 8px; flex-wrap: wrap;
+            margin-top: 14px;
         }
         .status-check__support-btn {
             background: transparent; border: 1px solid #00C26F; border-radius: 10px;
@@ -308,14 +309,14 @@
 
             <!-- Details -->
             <div class="status-check__details" id="status-details"></div>
+        </div>
 
-            <!-- Footer: support + auto-refresh -->
-            <div class="status-check__footer">
-                <button class="status-check__support-btn" id="support-btn">💬 Contact Support</button>
-                <div class="status-check__auto-refresh" id="auto-refresh-indicator" style="display:none;">
-                    <span class="status-check__dot"></span>
-                    <span id="auto-refresh-timer">Auto-refresh in 30s</span>
-                </div>
+        <!-- Support row: ВСЕГДА ВИДЕН -->
+        <div class="status-check__footer">
+            <button class="status-check__support-btn" id="support-btn">💬 Contact Support</button>
+            <div class="status-check__auto-refresh" id="auto-refresh-indicator" style="display:none;">
+                <span class="status-check__dot"></span>
+                <span id="auto-refresh-timer">Auto-refresh in 30s</span>
             </div>
         </div>
     </div>
