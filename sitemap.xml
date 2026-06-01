@@ -377,13 +377,71 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- ========== EXCHANGE ========== -->
-
+  <!-- ========== EXCHANGE (все языки) ========== -->
+  <!-- Русская версия -->
   <url>
     <loc>https://www.cryptoswapbot.online/exchange</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange"/>
+  </url>
+  <!-- Английская версия -->
+  <url>
+    <loc>https://www.cryptoswapbot.online/en/exchange</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange"/>
+  </url>
+  <!-- Испанская версия -->
+  <url>
+    <loc>https://www.cryptoswapbot.online/es/exchange</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange"/>
+  </url>
+  <!-- Португальская версия -->
+  <url>
+    <loc>https://www.cryptoswapbot.online/pt/exchange</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange"/>
+  </url>
+  <!-- Турецкая версия -->
+  <url>
+    <loc>https://www.cryptoswapbot.online/tr/exchange</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.cryptoswapbot.online/exchange"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cryptoswapbot.online/en/exchange"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cryptoswapbot.online/es/exchange"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.cryptoswapbot.online/pt/exchange"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.cryptoswapbot.online/tr/exchange"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cryptoswapbot.online/en/exchange"/>
   </url>
 
   <!-- ========== СЛУЖЕБНЫЕ ========== -->
