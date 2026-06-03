@@ -805,6 +805,30 @@
             wa.ready();
         }
     })();
+        // ОТПРАВКА ДАННЫХ В БОТА
+    function sendExchangeToBot(exchangeData) {
+        if (window.Telegram && Telegram.WebApp) {
+            Telegram.WebApp.sendData(JSON.stringify(exchangeData));
+        } else {
+            console.log('Not in Telegram WebApp, data:', exchangeData);
+        }
+    }
+
+    window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://changenow.io') return;
+        const data = event.data;
+        if (data && data.type === 'transactionFinished') {
+            const exchangeInfo = {
+                exchange_id: data.transactionId,
+                from_currency: data.fromCurrency,
+                to_currency: data.toCurrency,
+                from_amount: data.fromAmount,
+                to_amount: data.toAmount,
+                status: data.status
+            };
+            sendExchangeToBot(exchangeInfo);
+        }
+    });
 </script>
 <script defer src="https://changenow.io/embeds/exchange-widget/v2/stepper-connector.js"></script>
 </body>
