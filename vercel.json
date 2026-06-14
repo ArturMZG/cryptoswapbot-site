@@ -1,33 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-
   "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/en/index.html",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/es/index.html",
-      "destination": "/es",
-      "permanent": true
-    },
-    {
-      "source": "/pt/index.html",
-      "destination": "/pt",
-      "permanent": true
-    },
-    {
-      "source": "/tr/index.html",
-      "destination": "/tr",
-      "permanent": true
-    }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/en/index.html", "destination": "/en", "permanent": true },
+    { "source": "/es/index.html", "destination": "/es", "permanent": true },
+    { "source": "/pt/index.html", "destination": "/pt", "permanent": true },
+    { "source": "/tr/index.html", "destination": "/tr", "permanent": true },
+    // Глобальный редирект для всех остальных .html (кроме exchange.html)
+    { "source": "/((?!exchange\\.html$).*)\\.html", "destination": "/$1", "permanent": true }
   ],
 
   "headers": [
